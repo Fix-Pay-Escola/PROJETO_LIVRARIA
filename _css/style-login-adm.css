@@ -78,7 +78,7 @@ div.left {
 }
 
 .fundo {
-    background-color: #013342;
+    background-color: #02222a;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,7 +104,7 @@ div.left {
 }
 
 .checkbox:checked+.fundo .ball {
-    transform: translateX(1.6vh);
+    transform: translateX(1.5vh);
 }
 
 .fundo .bi-sun-fill {

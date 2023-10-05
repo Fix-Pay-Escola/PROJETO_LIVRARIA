@@ -7,16 +7,15 @@
 body{
     height: 100vh;
     width: 100vw;
-    background: rgb(179, 179, 194);
-    display: flex;
-    justify-content: end;
-    margin-top: 20px;
+    background-color: #9bb6c2;
 }
 ul{
     display:flex;
-    flex-direction: row;
     justify-content: end;
-    font-size: 10pt;
+    font-size: 13pt;
+}
+.book{
+    margin-left: 50%;
 }
 .texto{
     margin-top: 5px;
@@ -24,18 +23,22 @@ ul{
 li{
     margin: 0px 10px;
 }
+.lista{
+    margin-top: -1.2vh;
+}
 #casa{
     color:#0a7e90;
 }
 
 a{
+    font-size: 13pt;
     text-decoration: none;
     color: black;
     cursor: pointer;
 }
 a:hover{
     color:  #0a7e90;
-    font-size: 11pt;
+    font-size: 14pt;
     transition: 0.3s;
 }
 button{
@@ -56,24 +59,28 @@ button:hover{
     text-decoration: none;
     color: black;
 }
-
-.bloco{
-    background-color: #dae2e5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25vw;
-    height: 35vh;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.222);
+.line{
+    border: 1px solid #006989;
 }
-.bloco-two{
-    background-color: #dae2e5;
+.back{
+    margin-top: -100px;
+    border: 60px solid #dae2e5;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.222);
+}
+.container{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.bloco{
+    background-color: #eaebed;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25vw;
-    height: 35vh;
+    width: 60vw;
+    height: 70vh;
     border-radius: 8px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.222);
 }
