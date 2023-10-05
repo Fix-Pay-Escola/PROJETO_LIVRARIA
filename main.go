@@ -6,7 +6,7 @@ import (
 	"html/template"
 
 )
-var temp = template.Must((template.ParseGlob("HTML/*.html")))
+var temp = template.Must((template.ParseGlob("_html/*.html")))
 
 func main(){
 	http.HandleFunc("/", index)
