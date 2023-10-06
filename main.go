@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 
@@ -26,7 +27,7 @@ func main() {
 //	})
 
 	http.ListenAndServe(":5500", nil)
-
+	fmt.Println("aiaiaiai")
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
