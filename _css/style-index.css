@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 @font-face {
     font-family: 'Lemon-milk';
     src: url(/_fonts/l);
 }
+=======
+>>>>>>> 863b1eb2e02f92aad20af9068105420d1d349de5
 *{
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +16,7 @@ body{
     width: 100vw;
     background-color: #9bb6c2;
 }
+<<<<<<< HEAD
 .top{
     display: flex;
     align-items: center;
@@ -29,12 +33,28 @@ ul{
     margin-bottom: 0;
     font-size: 13pt;
 }
+=======
+ul{
+    display:flex;
+    justify-content: end;
+    font-size: 13pt;
+}
+.book{
+    margin-left: 50%;
+}
+>>>>>>> 863b1eb2e02f92aad20af9068105420d1d349de5
 .texto{
     margin-top: 5px;
 }
 li{
     margin: 0px 10px;
 }
+<<<<<<< HEAD
+=======
+.lista{
+    margin-top: -1.2vh;
+}
+>>>>>>> 863b1eb2e02f92aad20af9068105420d1d349de5
 #casa{
     color:#0a7e90;
 }
@@ -84,6 +104,10 @@ button:hover{
     gap: 10px;
 }
 .bloco{
+<<<<<<< HEAD
+=======
+    background-color: #eaebed;
+>>>>>>> 863b1eb2e02f92aad20af9068105420d1d349de5
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,6 +115,7 @@ button:hover{
     height: 70vh;
     border-radius: 8px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.222);
+<<<<<<< HEAD
     background-image: url('/_imagens/pilha-livro.jpg');
     background-size: cover;
 }
@@ -105,3 +130,6 @@ button:hover{
 p{
     font-family: 'Cocogoose', sans-serif;
 }
+=======
+}
+>>>>>>> 863b1eb2e02f92aad20af9068105420d1d349de5
