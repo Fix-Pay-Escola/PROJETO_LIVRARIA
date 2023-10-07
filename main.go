@@ -18,14 +18,6 @@ func main() {
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/about-us",about_us)
 
-//	fs := http.FileServer(http.Dir("_css/"))
-//	http.HandleFunc("/_css/", func(w http.ResponseWriter, r *http.Request) {
-//		if strings.HasSuffix(r.URL.String(), ".css") {
-//			w.Header().Set("Content-Type", "text/css")
-//		}
-//		http.StripPrefix("/_css/", fs)
-//	})
-
 	http.ListenAndServe(":5500", nil)
 
 	fmt.Println("aiaiaiaiai")
