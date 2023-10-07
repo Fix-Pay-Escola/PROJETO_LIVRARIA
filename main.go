@@ -61,4 +61,7 @@ func carregar_arquivos(){
 	 http.HandleFunc("/styles/alugueis",func(w http.ResponseWriter, r*http.Request){
 		http.ServeFile(w,r,"_css/style-alug.css")
 	 })
+	 http.HandleFunc("/styles/image/home_image", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_imagens/pilha-livro.jpg")
+	 })
 }
