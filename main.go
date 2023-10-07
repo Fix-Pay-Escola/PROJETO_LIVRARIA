@@ -28,7 +28,7 @@ func main() {
 
 	http.ListenAndServe(":5500", nil)
 
-	fmt.Println("aiaiaiai")
+	fmt.Println("aiaiaiaiai")
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
