@@ -17,6 +17,7 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/about-us",about_us)
+	http.HandleFunc("/Acervo",alugueis)
 
 	http.ListenAndServe(":5500", nil)
 
@@ -32,6 +33,9 @@ func login(w http.ResponseWriter, r *http.Request){
 }
 func about_us(w http.ResponseWriter, r*http.Request){
 	temp.ExecuteTemplate(w,"About Us",nil)
+}
+func alugueis(w http.ResponseWriter, r*http.Request){
+	temp.ExecuteTemplate(w,"Alugueis",nil)
 }
 func carregar_arquivos(){
 	http.HandleFunc("/styles/home", func (w http.ResponseWriter, r*http.Request)  {
@@ -52,5 +56,9 @@ func carregar_arquivos(){
 
 	 http.HandleFunc("/script/js/dark-mode",func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w,r,"_js/login-tema.js")
+	 })
+
+	 http.HandleFunc("/styles/alugueis",func(w http.ResponseWriter, r*http.Request){
+		http.ServeFile(w,r,"_css/style-alug.css")
 	 })
 }
