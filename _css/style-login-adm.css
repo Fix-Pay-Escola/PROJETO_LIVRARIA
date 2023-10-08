@@ -187,6 +187,10 @@ button {
 .cancelbtn{
     background-color: #a3b3b8;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .cancelbtn:hover{
     background-color:#667377;
 }
@@ -199,17 +203,10 @@ button {
 }
 
 footer{
-    width: 65%;
-    margin-top: 5px;
-}
-.change-user {
+    position: fixed;
     display: flex;
-    justify-content: end;
-    color: #016280;
-    text-decoration: none;
-    font-size: 9pt;
-}
-
-.change-user:hover {
-    text-decoration: underline;
-}
+    justify-content: center;
+    bottom: 0;
+    font-size: 10pt;
+    color: #015872;
+  }

@@ -1,129 +1,146 @@
-
 @font-face {
-    font-family: 'Lemon-milk';
-    src: url(/_fonts/l);
+  font-family: "Lemon-milk";
+  src: url(/_fonts/l);
 }
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
-body{
-    height: 100vh;
-    width: 100vw;
-    background-color: #9bb6c2;
-}
-
-.top{
-    display: flex;
-    align-items: center;
-}
-.book{
-    margin-left: 50%;
-    margin-top: 10px;
-}
-ul{
-    display:flex;
-    justify-content: end;
-    margin-left: 21%;
-    margin-top: 25px;
-    margin-bottom: 0;
-    font-size: 13pt;
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #9bb6c2;
 }
 
-ul{
-    display:flex;
-    justify-content: end;
-    font-size: 13pt;
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.book{
-    margin-left: 50%;
+.book {
+  margin-left: 50%;
+  margin-top: 10px;
 }
-
-.texto{
-    margin-top: 5px;
-}
-li{
-    margin: 0px 10px;
-}
-
-
-.lista{
-    margin-top: -1.2vh;
+ul {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+  margin-bottom: 0;
+  font-size: 13pt;
 }
 
-#casa{
-    color:#0a7e90;
+.texto {
+  margin-top: 5px;
 }
 
-a{
-    font-size: 13pt;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+li {
+  margin: 0px 10px;
 }
-a:hover{
-    color:  #0a7e90;
-    font-size: 14pt;
-    transition: 0.3s;
-}
-button{
-    margin-top: -3px;
-    border: none;
-    border-radius: 7px;
-    padding: 7px;
-    background-color: #01a7c2;
-    cursor: pointer;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.232);
-}
-button:hover{
-    background-color: #0896ac;
-    padding: 8px;
-    transition: 0.3s;
-}
-.login:hover{
-    text-decoration: none;
-    color: black;
-}
-.line{
-    border: 1px solid #006989;
-}
-.back{
-    margin-top: -100px;
-    border: 60px solid #dae2e5;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.222);
-}
-.container{
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-.bloco{
-    background-color: #eaebed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60vw;
-    height: 70vh;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.222);
-    background-image: url('/_imagens/pilha-livro.jpg');
-    background-size: cover;
-}
-.bloco:hover{
-    width: 61vw;
-    height: 72vh;
-    transition: 0.2s linear;
-    cursor: pointer;
-    font-size: 13pt;
-    filter:blur(1px);
-}
-p{
-    font-family: 'Cocogoose', sans-serif;
+.lista {
+  margin-top: -1.2vh;
 }
 
+#casa {
+  color: #0a7e90;
+}
 
+a,
+button {
+  font-size: 13pt;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: color 0.2s, font-size 0.2s;
+}
 
+a:hover {
+  color: #0a7e90;
+  font-size: 14pt;
+  transition: 0.2s;
+}
+.button-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.button-wrapper a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  padding: 7px 12px;
+  background-color: #01a7c2;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.232);
+  transition: background-color 0.3s, padding 0.3s;
+}
+
+.button-wrapper a:hover {
+  background-color: #0896ac;
+  padding: 8px 13px;
+}
+
+.line {
+  border: 1px solid #006989;
+  width: 100%;
+}
+.back {
+  margin-top: -100px;
+  border: 60px solid #dae2e5;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.222);
+  width: 100%;
+}
+.container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.bloco {
+  position: relative;
+  background-color: #eaebed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.222);
+  background-image: url("/_imagens/pilha-livro.jpg");
+  background-size: cover;
+  transition: width 0.1s, height 0.1s;
+  overflow: hidden;
+}
+.bloco a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.bloco:hover {
+  width: 61vw;
+  height: 72vh;
+  transition: 0.1s linear;
+  cursor: pointer;
+  font-size: 13pt;
+}
+.bloco p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  font-size: 10pt;
+  color: #006989;
+}
