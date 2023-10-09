@@ -14,7 +14,10 @@ body {
   background: rgb(1,167,194);
 background: linear-gradient(180deg, rgba(1,167,194,1) 0%, rgba(1,167,194,1) 50%, rgba(0,105,137,1) 100%);
 }
-
+body.dark{
+  background: rgb(103,126,135);
+background: linear-gradient(180deg, rgba(103,126,135,1) 0%, rgba(19,55,65,1) 100%);
+          color: #eaebed;}
 .top {
   display: flex;
   justify-content: space-between;
@@ -87,10 +90,16 @@ a:hover {
 .line{
     border: 1px solid #006989;
 }
+.line.dark{
+  border: 1px solid #023747;
+}
 .back{
     margin-top: -100px;
     border: 60px solid #dae2e5;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.222);
+}
+.back.dark{
+  border: 60px solid #5f6c6e;
 }
 .container{
     height: 90vh;
