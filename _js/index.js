@@ -2,11 +2,11 @@ const check = document.getElementById("check");
 
 check.addEventListener("change", () => {
   document.body.classList.toggle("dark");
-  const main = document.querySelector(".main");
+  const main = document.querySelector(".line");
   main.classList.toggle("dark");
-  const botao = document.querySelector(".boton");
+  const botao = document.querySelector(".back");
   botao.classList.toggle("dark");
-  const input = document.querySelector(".cont");
+  const input = document.querySelector("#login");
   input.classList.toggle("dark");
   const butCancel = document.querySelector(".cancelbtn");
   butCancel.classList.toggle("dark");
