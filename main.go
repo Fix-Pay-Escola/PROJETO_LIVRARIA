@@ -15,7 +15,8 @@ func main() {
 	http.HandleFunc("/", routes.Index)
 	http.HandleFunc("/login", routes.Login)
 	http.HandleFunc("/about-us",routes.About_us)
-	http.HandleFunc("/Acervo",routes.Alugueis)
+	http.HandleFunc("/Acervo_Adm",routes.Alugueis)
+	http.HandleFunc("/Acervo_User",routes.Alugueis_user)
 
 	http.ListenAndServe(":5500", nil)
 }
