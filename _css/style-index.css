@@ -14,7 +14,10 @@ body {
   background: rgb(1,167,194);
 background: linear-gradient(180deg, rgba(1,167,194,1) 0%, rgba(1,167,194,1) 50%, rgba(0,105,137,1) 100%);
 }
-
+body.dark{
+  background: rgb(103,126,135);
+background: linear-gradient(180deg, rgba(103,126,135,1) 0%, rgba(19,55,65,1) 100%);
+          color: #eaebed;}
 .top {
   display: flex;
   justify-content: space-between;
