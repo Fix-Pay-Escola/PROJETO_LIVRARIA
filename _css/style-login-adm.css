@@ -210,3 +210,5 @@ footer{
     font-size: 10pt;
     color: #015872;
   }
+@media (max-width: 780px) {}
+@media (max-width:420px) {}
