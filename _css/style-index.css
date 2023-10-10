@@ -90,9 +90,11 @@ a:hover {
   border-radius: 7px;
   cursor: pointer;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.232);
-  transition: background-color 0.3s, padding 0.3s;
+  transition: background-color 0.2s, padding 0.2s;
 }
-
+#login{
+  color: black;
+}
 #login.dark {
   background-color: #006a87;
   color: #ced4e0;
@@ -161,7 +163,7 @@ a:hover {
 
 .bloco:hover {
   width: 61vw;
-  height: 72vh;
+  height: 71vh;
   transition: 0.1s linear;
   cursor: pointer;
   font-size: 13pt;
