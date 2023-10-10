@@ -2,14 +2,18 @@ const check = document.getElementById("check");
 
 check.addEventListener("change", () => {
   document.body.classList.toggle("dark");
-  const main = document.querySelector(".line");
-  main.classList.toggle("dark");
-  const botao = document.querySelector(".back");
-  botao.classList.toggle("dark");
-  const input = document.querySelector("#login");
-  input.classList.toggle("dark");
-  const butCancel = document.querySelector(".cancelbtn");
+  const header = document.querySelector(".back");
+  header.classList.toggle("dark");
+  const headerEnd = document.querySelector(".line");
+  headerEnd.classList.toggle("dark");
+  const login = document.querySelector("#login");
+  login.classList.toggle("dark");
+  const butCancel = document.querySelector(".pe");
   butCancel.classList.toggle("dark");
+  const topTxt = document.querySelector(".hover-trigger");
+  topTxt.classList.toggle("dark");
+  const blocoCap = document.querySelector(".acervi");
+  blocoCap.classList.toggle("dark");
 });
 
 document.addEventListener('DOMContentLoaded', function() {
