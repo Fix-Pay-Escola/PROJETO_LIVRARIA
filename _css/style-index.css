@@ -43,6 +43,11 @@ ul {
 .hover-trigger.dark {
   color: #eaebed;
 }
+.hover-trigger.dark:hover{
+  color: #01a7c2;
+  font-size: 14pt;
+  transition: 0.2s;
+}
 
 li {
   margin: 0px 10px;
@@ -53,7 +58,7 @@ li {
 }
 
 #casa {
-  color: #0a7e90;
+  color: #01a7c2;
 }
 
 a,
@@ -66,7 +71,7 @@ button {
 }
 
 a:hover {
-  color: #0a7e90;
+  color: #01a7c2;
   font-size: 14pt;
   transition: 0.2s;
 }
