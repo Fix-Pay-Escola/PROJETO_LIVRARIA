@@ -36,6 +36,21 @@ func Edit(w http.ResponseWriter, r*http.Request){
 func New(w http.ResponseWriter, r*http.Request){
 	temp.ExecuteTemplate(w,"New",nil)
 }
+
+func Insert(w http.ResponseWriter, r*http.Request){
+	if r.Method == "POST"{
+		nome := r.FormValue("nome")
+		descricao := r.FormValue("descricao")
+		status := r.FormValue("status")
+		isbn := r.FormValue("isbn")
+
+		models.CriarNovoProduto(nome,descricao,status,isbn)
+	}
+	http.Redirect(w,r,"/Acervo_Adm",301)
+}
+
 func Delete(w http.ResponseWriter, r*http.Request){
-	http.Redirect(w,r,"/",301)
+	idDoProduto := r.URL.Query().Get("id")
+	models.DeletaProduto(idDoProduto)
+	http.Redirect(w,r,"/Acervo_Adm",301)
 }
