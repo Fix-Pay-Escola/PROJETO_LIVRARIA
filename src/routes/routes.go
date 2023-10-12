@@ -1,22 +1,18 @@
 package routes
 
-import (
+import(
 	"net/http"
-	"html/template"
+	"golang/src/controllers"
+	_"golang/src/models"
+	_ "github.com/lib/pq"
 )
-
-var temp = template.Must((template.ParseGlob("_html/*.html")))
-
-func Index(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "Index", nil)
-}
-
-func Login(w http.ResponseWriter, r *http.Request){
-	temp.ExecuteTemplate(w,"Login",nil)
-}
-func About_us(w http.ResponseWriter, r*http.Request){
-	temp.ExecuteTemplate(w,"About Us",nil)
-}
-func Alugueis(w http.ResponseWriter, r*http.Request){
-	temp.ExecuteTemplate(w,"Alugueis",nil)
+func Carregar_Rotas(){
+	http.HandleFunc("/", controllers.Index)
+	http.HandleFunc("/login", controllers.Login)
+	http.HandleFunc("/about-us",controllers.About_us)
+	http.HandleFunc("/Acervo_Adm",controllers.Alugueis)
+	http.HandleFunc("/Acervo",controllers.Alugueis_user)
+	http.HandleFunc("/new",controllers.New)
+	http.HandleFunc("/insert",controllers.Insert)
+	http.HandleFunc("/delete",controllers.Delete)
 }
