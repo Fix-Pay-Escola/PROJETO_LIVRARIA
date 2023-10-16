@@ -19,6 +19,12 @@ func Carregar_arquivos(){
 		http.ServeFile(w,r,"_imagens/admin-pc.svg")
 	 })
 
+
+	 http.HandleFunc("/script/js/login-script",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_js/login-tema.js")
+	 })
+
+
 	 http.HandleFunc("/styles/alugueis",func(w http.ResponseWriter, r*http.Request){
 		http.ServeFile(w,r,"_css/style-alug.css")
 	 })
