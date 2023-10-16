@@ -1,3 +1,13 @@
 body{
     background-color: white;
 }
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.bot{
+    display: flex;
+    justify-content: end;
+    margin-right: 123px;
+}

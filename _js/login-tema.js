@@ -21,9 +21,9 @@ goin.addEventListener("click", function handleClick() {
   const pass = passInput.value;
 
   if (login === "adm" && pass === "123456789") {
-    alert("Bem vindo!");
     loginInput.value = "";
     passInput.value = "";
+    window.location = "/Acervo_Adm"
   } else {
     alert("Usuário ou senha incorretos!");
     loginInput.value = "";

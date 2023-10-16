@@ -14,21 +14,21 @@
 <body>
   <div class="main">
     <div class="left">
-      <h1>Faça seu <span class="log">login!</span></h1>
+      <h1 style="white-space:nowrap">Faça seu&nbsp;<span style="color: #4796ac;" }> login!</span></h1>
       <br>
 
       <div class="container">
-        <label for="login"><b>Usuário</b></label> <br>
-        <input class="cont" type="text" placeholder="Inserir Usuário" name="login" required>
+        <label for="login" class="upass"><b>Usuário</b></label> <br>
+        <input class="cont" type="text" placeholder="Inserir usuário" name="login" id="login" required>
       </div>
       <div class="container">
-        <label for="pass"><b>Senha</b></label> <br>
-        <input class="cont" type="password" placeholder="Inserir Senha" name="pass" required>
+        <label for="pass" class="upass"><b>Senha</b></label> <br>
+        <input class="cont" type="password" placeholder="Inserir senha" name="pass" id="pass" required>
       </div>
 
       <div class="button">
-        <button type="enviar" class="boton">Entrar</button>
-        <button type="button" class="cancelbtn">Cancelar</button>
+        <button type="submit" class="boton" id="goin">Entrar</button>
+        <button type="submit" class="cancelbtn" id="out" href="/">Cancelar</button>
       </div>
     </div>
 

@@ -10,30 +10,40 @@
 </head>
 
 <body>
-<div class="nav">
-    <div class="top">
-        <img src="/styles/image/home_icon" width="60px" class="book">
-        <ul type="none" class="lista">
-            <li class="texto" id="casa">
-                HOME
-            </li>
-            <li class="texto" id="info">
-                <a href="/about-us">SOBRE NÓS</a>
-            </li>
-            <li>
-                <button><a href="/login" class="login">LOGIN</a></button>
-            </li>
+    <div class="nav">
+      <div class="top">
+        <img src="/style/index-icon"
+          width="60px"
+          class="book"/>
+        <ul type="none">
+          <li class="texto" id="casa">Home</li>
+          <li class="texto" id="info">
+            <a href="/about-us" class="hover-trigger">Sobre nós</a>
+          </li>
+          <li><button class="button-wrapper">
+            <a href="/login" id="login" class="hover-trigger">Login</a>
+          </button>
+          </li>
         </ul>
+      </div>
     </div>
-</div>
-<hr class="back">
-<hr class="line">
-<div class="container">
-    <div class="bloco">
-        <p class="inside-bloco">ACERVO</p>
+    <hr class="back" />
+    <hr class="line" />
+    <div class="container">
+      <div class="bloco">
+        <a href="/Acervo" class="acv">
+          <figcaption class="acervi">Acervo</figcaption></a>
+      </div>
     </div>
-</div>
+    <div class="checar">
+    <input type="checkbox" class="checkbox" id="check" />
+    <label class="fundo" for="check">
+      <i class="bi-moon-stars-fill"></i>
+      <i class="bi-sun-fill"></i>
+      <div class="ball"></div>
+    </label>
+    </div>
 </body>
-
+ <script src="/script/index"></script>
 </html>
 {{end}}

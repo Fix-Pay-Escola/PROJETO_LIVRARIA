@@ -1,6 +1,9 @@
 package models
 
 import(
+	_"database/sql"
+
+	_ "github.com/lib/pq"
 	"golang/src/db"
 )
 type Produto struct {
@@ -8,13 +11,15 @@ type Produto struct {
 	Isbn string;
 	Nome string;
 	Descricao string;
-	Status string
+	Status string;
+	Autor string;
+	Editora string
 }
 
 func BuscaTodosOsProdutos() []Produto{
 	db := db.ConectacomBancoDeDados()
 	
-	selectDeTodosOsProdutos, err := db.Query("select * from livros")
+	selectDeTodosOsProdutos, err := db.Query("select * from livros order by id asc")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -24,9 +29,9 @@ func BuscaTodosOsProdutos() []Produto{
 
 	for selectDeTodosOsProdutos.Next(){
 		var id int
-		var nome, descricao, status, isbn string
+		var nome, descricao, status, isbn,autor,editora string
 
-		err = selectDeTodosOsProdutos.Scan(&id, &isbn, &nome, &descricao, &status)
+		err = selectDeTodosOsProdutos.Scan(&id, &isbn, &nome, &descricao, &status,&autor,&editora)
 		 if err != nil {
 			panic(err.Error())
 		 }
@@ -35,6 +40,7 @@ func BuscaTodosOsProdutos() []Produto{
 		 p.Nome = nome
 		 p.Descricao = descricao
 		 p.Status = status
+		 p.Autor = autor
 
 		 produtos = append(produtos, p)
 
@@ -45,15 +51,15 @@ func BuscaTodosOsProdutos() []Produto{
 
 }
 
-func CriarNovoProduto(nome,descricao,status,isbn string){
+func CriarNovoProduto(nome,descricao,status,isbn,autor,editora string){
 	db := db.ConectacomBancoDeDados()
 
-	insereDadosNoBanco, err := db.Prepare("insert into livros (nome,descricao,status,isbn) Values ($1,$2,$3,$4)")
+	insereDadosNoBanco, err := db.Prepare("insert into livros (nome,descricao,status,isbn,autor,editora) Values ($1,$2,$3,$4,$5,$6)")
 	if err != nil {
 		panic(err.Error())
 	}
 
-	insereDadosNoBanco.Exec(nome,descricao,status,isbn)
+	insereDadosNoBanco.Exec(nome,descricao,status,isbn,autor,editora)
 
 
 
@@ -63,11 +69,52 @@ func CriarNovoProduto(nome,descricao,status,isbn string){
 func DeletaProduto(id string){
 	db := db.ConectacomBancoDeDados()
 
-	deletarProduto,err := db.Prepare("delete from livros where id=$1")
+	deletarOProduto,err := db.Prepare("delete from livros where id=$1")
 	 if err != nil {
 		panic(err.Error())
 	 }
 
-	 deletarProduto.Exec(id)
+	deletarOProduto.Exec(id)
 	 defer db.Close()
+}
+
+func EditaProduto(id string) Produto{
+	db := db.ConectacomBancoDeDados()
+
+	produtoDoBanco, err := db.Query("select * from livros where id=$1",id)
+	if err != nil {
+		panic(err.Error())
+	}
+
+	produtoParaAtualizar := Produto{}
+
+	for produtoDoBanco.Next() {
+		var  id int
+		var nome,descricao,status,isbn,autor,editora string
+
+		err = produtoDoBanco.Scan(&id,&isbn,&nome,&descricao,&status,&autor,&editora)
+
+		if err != nil{
+			panic(err.Error())
+		}
+		produtoParaAtualizar.Id = id
+		produtoParaAtualizar.Nome = nome
+		produtoParaAtualizar.Descricao = descricao
+		produtoParaAtualizar.Isbn = isbn
+		produtoParaAtualizar.Status = status
+		produtoParaAtualizar.Autor = autor
+		produtoParaAtualizar.Editora = editora
+	}
+	defer db.Close()
+	return produtoParaAtualizar
+}
+func AtualizaProduto(id int, nome,descricao,status,isbn,autor,editora string){
+	db := db.ConectacomBancoDeDados()
+
+	AtualizaProduto, err := db.Prepare("Update livros set nome=$1,descricao=$2,status=$3,isbn=$4,autor=$5,editora=$6 where id=$7")
+	if err != nil {
+		panic(err.Error())
+	}
+	AtualizaProduto.Exec(nome,descricao,status,isbn,autor,editora,id)
+	defer db.Close()
 }
