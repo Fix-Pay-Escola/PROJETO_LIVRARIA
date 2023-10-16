@@ -49,5 +49,4 @@ func Carregar_arquivos(){
 	http.HandleFunc("/script/js/dark-mode",func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w,r,"_js/login-tema.js")
 	 })
-
 }

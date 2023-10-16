@@ -155,7 +155,7 @@ a:hover {
   height: 70vh;
   border-radius: 8px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.222);
-  background-image: url("/_imagens/pilha-livro.jpg");
+  background-image: url("/styles/image/home_image");
   background-size: cover;
   transition: width 0.1s, height 0.1s;
 }

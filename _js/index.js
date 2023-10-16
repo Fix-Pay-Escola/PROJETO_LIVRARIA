@@ -8,8 +8,6 @@ check.addEventListener("change", () => {
   headerEnd.classList.toggle("dark");
   const login = document.querySelector("#login");
   login.classList.toggle("dark");
-  const butCancel = document.querySelector(".pe");
-  butCancel.classList.toggle("dark");
   const topTxt = document.querySelector(".hover-trigger");
   topTxt.classList.toggle("dark");
   const blocoCap = document.querySelector(".acervi");
