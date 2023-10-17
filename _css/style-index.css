@@ -15,7 +15,6 @@ body {
 body.dark {
   background: rgb(103, 126, 135);
   background: linear-gradient(180deg, rgb(32, 86, 107) 0%, rgba(19, 55, 65, 1) 100%);
-
   transition: 0.2s linear;
 }
 
