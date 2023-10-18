@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    padding: 0;
     height: 100;
     width: 100;
     box-sizing: border-box;
@@ -17,103 +16,53 @@ a:hover {
     text-decoration: none;
 }
 
-#head {
-    display: flex;
-    justify-content: center;
-    font-size: larger;
-    background-color: #cce0e7;
-    box-sizing: 0px 5px 7px rgba(0, 0, 0, 0.455);
-    color: #035973;
-    position: sticky;
+#cab {
     width: 100%;
 }
 
+#head {
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.089);
+    color: #024a60;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(58deg, rgb(204, 224, 231) 0%, rgb(152, 178, 187) 50%, rgb(113, 156, 172) 100%);
+}
+
 #head a {
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.237);
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    text-shadow: 0px 1px 1.2px rgba(0, 0, 0, 0.249);
+    transition: 0.2s linear;
 }
 
 #head a:hover {
-    color: #073745;
+    color: #0c5166;
     font-size: 15pt;
     transition: 0.2s linear;
-    margin-bottom: -1.2px;
 }
-#head.dark{
-    background-color: #3b4344;
+
+#head.dark {
+    background-color: rgb(59, 67, 68);
     color: #72a6b7;
+    transition: 0.2s linear;
+    background: linear-gradient(192deg, rgb(83, 89, 90) 0%, rgb(72, 80, 81) 50%, rgb(54, 66, 68) 100%);
 }
-#head.dark a:hover{
+
+#head.dark a:hover {
     color: #eaebed;
 }
-body {
-    height: 100vh;
-    background: rgb(1, 167, 194);
-    background: linear-gradient(180deg, rgb(2, 155, 178) 0%, rgba(1, 167, 194, 1) 50%, rgba(0, 105, 137, 1) 100%);
-    background-repeat: no-repeat;
-  transition: 0.3s linear;
-}
-body.dark {
-  background: rgb(103, 126, 135);
-  background: linear-gradient(180deg, rgb(32, 86, 107) 0%, rgba(19, 55, 65, 1) 100%);
+
+.book {
+    position: fixed;
+    margin-top: -33px;
 }
 
-#btn-add {
-    border: none;
-    background-color: #14d0e9;
-    color: #035973;
-    box-shadow: 0px 0.5px 3px rgba(0, 0, 0, 0.321);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    border-radius: 5px;
-    width: auto;
-    text-align: center;
-    
-}
-
-#btn-add:hover {
-    background-color: #03b6d2;
-    color: #073546;
-    transition: 0.2s linear;
-}
-#btn-add.dark{
-    background-color: #006a87;
-    color: #eaebed;
-}
-#btn-add.dark:hover{
-    background-color: #014e64;
-    color: #fff;
-}
-#btn-edit {
-    border: none;
-    background-color: #64bbcc;
-    color: #ecf6f9;
-}
-
-#btn-edit:hover {
-    background-color: #549baa;
-    color: #ffffff;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.21);
-}
-
-#btn-del {
-    border: none;
-    background-color: #B31312;
-    color: #f3d0d0;
-}
-
-#btn-del:hover {
-    background-color: #900909;
-    color: #ffffff;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.321);
-    transition: 0.2s linear;
-}
 .checar {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -3%;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: -3vh;
 }
 
 .checkbox {
@@ -169,6 +118,79 @@ body.dark {
     left: -2px;
 }
 
+body {
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(2, 155, 178) 0%, rgba(1, 167, 194, 1) 50%, rgba(0, 105, 137, 1) 100%);
+    background-repeat: no-repeat;
+    transition: 0.3s linear;
+}
+
+body.dark {
+    background: rgb(103, 126, 135);
+    background: linear-gradient(180deg, rgb(32, 86, 107) 0%, rgba(19, 55, 65, 1) 100%);
+    transition: 0.2s linear;
+}
+
+.content .btn_add {
+    margin-right: inherit;
+}
+
+.btn_add {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 6px;
+}
+
+#btn-add {
+    border: none;
+    background-color: #14d0e9;
+    color: #035973;
+    box-shadow: 0px 0.5px 3px rgba(0, 0, 0, 0.321);
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+#btn-add:hover {
+    background-color: #03b6d2;
+    color: #073546;
+    transition: 0.1s linear;
+}
+
+#btn-add.dark {
+    background-color: #006a87;
+    color: #eaebed;
+    transition: 0.2s linear;
+}
+
+#btn-add.dark:hover {
+    background-color: #014e64;
+    color: #fff;
+}
+
+#btn-edit {
+    border: none;
+    background-color: #64bbcc;
+    color: #ecf6f9;
+}
+
+#btn-edit:hover {
+    background-color: #549baa;
+    color: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.21);
+}
+
+#btn-del {
+    border: none;
+    background-color: #B31312;
+    color: #f3d0d0;
+}
+
+#btn-del:hover {
+    background-color: #900909;
+    color: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.321);
+    transition: 0.2s linear;
+}
 
 footer {
     display: flex;
