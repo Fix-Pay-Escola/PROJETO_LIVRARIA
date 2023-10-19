@@ -2,61 +2,78 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous">
-            <link rel="stylesheet" href="/styles/adm_css">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <title>Teste Crud</title>
-    </head>
-    <nav class="navbar navbar-light bg-light mb-4">
-        <a class="navbar-brand" href="/">Teste Crud</a>
-    </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/_css/style-ac-adm.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/_imagens/FPL3.ico">
+    <title>Livraria</title>
+</head>
+
 <body>
-    </nav>
-    <div class="bot">
-        <a href="/new" class="btn mb-2" id="btn-add">Inserir Novo Livro</a>
-    </div>
-    <div class="container">
-        <section class="card">
-            <div>
-                <table class="table table-striped table-hover mb-0">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{range .}}
-                        <tr>
-                            <td>{{.Nome}}</td>
-                            <td>{{.Descricao}}</td>
-                            <td>{{.Status}}</td>
-                            <td><a href="edit?id={{.Id}}" class = "btn" id="btn-edit">Editar</a></td>
-                            <td><button onclick="onDelete('{{.Id}}')" class="btn" id="btn-del">Deletar</button></td>
-                        </tr>
-                        {{end}}
-                    </tbody>
-                </table>
+    <nav id="head">
+        <div id="cab">
+            <img src="/style/index-icon" width="56px" class="book" />
+            <a href="/" id="lib">Livraria</a>
+            <div class="checar">
+                <input type="checkbox" class="checkbox" id="check" />
+                <label class="fundo" for="check">
+                    <i class="bi-moon-stars-fill"></i>
+                    <i class="bi-sun-fill"></i>
+                    <div class="ball"></div>
             </div>
-        </section>
+        </div>
+    </nav>
+    </nav>
+    <div class="content">
+        <div class="container">
+            <div class="btn_add">
+                <a href="/new" id="btn-add">Inserir Novo Livro</a>
+            </div>
+            <section class="card">
+                <div>
+                    <table class="table table-striped table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{range .}}
+                            <tr>
+                                <td>{{.Nome}}</td>
+                                <td>{{.Descricao}}</td>
+                                <td>{{.Status}}</td>
+                                <td><a href="edit?id={{.Id}}" class="btn" id="btn-edit">Editar</a></td>
+                                <td><button onclick="onDelete('{{.Id}}')" class="btn" id="btn-del">Deletar</button></td>
+                            </tr>
+                            {{end}}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
     </div>
 </body>
 <footer>&copy; Desenvolvido por Fix Pay</footer>
 <script>
-    function onDelete(id){
+    function onDelete(id) {
         let resposta = confirm("Tem certeza que deseja deletar esse produto?")
-         if (resposta){
+        if (resposta) {
             window.location = `/delete?id=${id}`
-         }
+        }
     }
 </script>
+<script src="/_js/acv.js"></script>
 
 </html>
 {{end}}

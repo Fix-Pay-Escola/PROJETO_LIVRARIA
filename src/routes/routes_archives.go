@@ -49,4 +49,17 @@ func Carregar_arquivos(){
 	http.HandleFunc("/script/js/dark-mode",func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w,r,"_js/login-tema.js")
 	 })
+
+	http.HandleFunc("/_js/acv.js",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_js/acv.js")
+	})
+	http.HandleFunc("/_css/style-ac-adm.css",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_css/style-ac-adm.css")
+	})
+	http.HandleFunc("/_imagens/FPL3.ico",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_imagens/FPL3.ico")
+	})
+	http.HandleFunc("/_css/style-new.css",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_css/style-new.css")
+	})
 }
