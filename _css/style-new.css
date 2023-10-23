@@ -63,7 +63,7 @@ body.dark {
     height: auto;
 }
 
-.btn-save {
+.btn-save, .btn-update{
     border: none;
     background-color: #14d0e9;
     color: #035973;
@@ -73,7 +73,7 @@ body.dark {
     margin-right: 10px;
 }
 
-.btn-save:hover {
+.btn-save, .btn-update:hover {
     background-color: #03b6d2;
     color: #073546;
     transition: 0.1s linear;
@@ -88,8 +88,11 @@ body.dark {
     background-color: #15404b;
     transition: 0.2s linear;
 }
-
-.btn-back {
+.btn-update.dark{
+    background-color: #1f5463;
+    color: #d9e1e4;
+}
+.btn-back{
     border: none;
     background-color: #aadfe7;
     color: #035973;
@@ -105,7 +108,7 @@ body.dark {
     text-decoration: none;
 }
 
-.btn-back.dark {
+.dark .btn-back{
     background-color: #53666d;
     color: #cad4d7;
 }

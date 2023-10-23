@@ -8,6 +8,8 @@ check.addEventListener("change", () => {
   input.classList.toggle("dark");
   const save = document.querySelector(".btn-save");
   save.classList.toggle("dark");
+  const update = document.querySelector(".btn-update");
+  update.classList.toggle("dark");
   const cb = document.querySelector(".btn-back");
   cb.classList.toggle("dark");
 });

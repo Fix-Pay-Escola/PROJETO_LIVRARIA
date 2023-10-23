@@ -9,15 +9,14 @@ html, body{
     width: 100%;
 }
 body {
-    background: linear-gradient(180deg, rgb(2, 155, 178) 0%, rgba(1, 167, 194, 1) 50%, rgba(0, 105, 137, 1) 100%);
+    background-color: rgb(2, 155, 178);
     background-repeat: no-repeat;
-    transition: 0.6s linear;
+    transition: 0.2s linear;
 }
 
 body.dark {
-    background: rgb(103, 126, 135);
-    background: linear-gradient(180deg, rgb(32, 86, 107) 0%, rgba(19, 55, 65, 1) 100%);
-    transition: 0.6s linear;
+    background: rgb(32, 86, 107);
+    transition: 0.2s linear;
 }
 
 a {
@@ -38,6 +37,7 @@ a:hover {
     color: #024a60;
     padding: 10px;
     margin-bottom: 10px;
+    transition: 0.2s linear;
     background: linear-gradient(58deg, rgb(204, 224, 231) 0%, rgb(152, 178, 187) 50%, rgb(113, 156, 172) 100%);
 }
 
