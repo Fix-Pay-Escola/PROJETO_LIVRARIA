@@ -4,25 +4,29 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
-html, body{
+
+html,
+body {
     height: 100%;
     width: 100%;
 }
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    flex-direction: column;
     background: linear-gradient(180deg, rgb(2, 155, 178) 0%, rgba(1, 167, 194, 1) 50%, rgba(0, 105, 137, 1) 100%);
     background-repeat: no-repeat;
     transition: 0.6s linear;
 }
 
 body.dark {
-    background: rgb(103, 126, 135);
     background: linear-gradient(180deg, rgb(32, 86, 107) 0%, rgba(19, 55, 65, 1) 100%);
     transition: 0.6s linear;
 }
+
 .card {
     display: flex;
     justify-content: center;
@@ -33,19 +37,33 @@ body.dark {
     padding: 10px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.29);
 }
+
+.card.dark {
+    background-color: #3c3d3f;
+    color: #eaebed;
+}
+
 .left {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
+    margin-left: 50px;
 }
+
 .right {
-    flex: 40%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.btn-save{
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+.btn-save {
     border: none;
     background-color: #14d0e9;
     color: #035973;
@@ -54,12 +72,24 @@ body.dark {
     border-radius: 7px;
     margin-right: 10px;
 }
-.btn-save:hover{
+
+.btn-save:hover {
     background-color: #03b6d2;
     color: #073546;
     transition: 0.1s linear;
 }
-.btn-back{
+
+.btn-save.dark {
+    background-color: #1f5463;
+    color: #d9e1e4;
+}
+
+.btn-save.dark:hover {
+    background-color: #15404b;
+    transition: 0.2s linear;
+}
+
+.btn-back {
     border: none;
     background-color: #aadfe7;
     color: #035973;
@@ -67,17 +97,112 @@ body.dark {
     padding: 10px 16px;
     border-radius: 7px;
 }
-.btn-back:hover{
+
+.btn-back:hover {
     background-color: #9dced5;
     color: #073546;
     transition: 0.1s linear;
     text-decoration: none;
 }
-.formulary{
+
+.btn-back.dark {
+    background-color: #53666d;
+    color: #cad4d7;
+}
+
+.btn-back.dark:hover {
+    background-color: #44545a;
+    transform: 0.2s linear;
+}
+
+.formulary {
     border: 1px solid #03597385;
     display: flex;
+    background-color: #f2f8f9;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.12);
     width: 100%;
+}
+.dark .formulary{
+    border: 1px solid #22718885;
+    background-color: #4f5051;
+    color: #eaebed;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+}
+
+.checar {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+  }
+
+.checkbox {
+    position: absolute;
+    box-shadow: none;
+    justify-content: center;
+    width: min-content;
+    opacity: 0;
+}
+
+.fundo {
+    background-color: #02222a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    transform: scale(1.5);
+    width: 26.5px;
+    height: 13px;
+    margin-top: 10px;
+}
+
+.fundo .ball {
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    left: 1.4px;
+    height: 9px;
+    width: 9px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.fundo .ball {
+    transform: translateX(1.5vh);
+}
+
+.fundo .bi-sun-fill {
+    color: rgb(235, 184, 81);
+    font-size: 7.5px;
+    position: relative;
+    left: 3px;
+}
+
+.fundo .bi-moon-stars-fill {
+    color: rgb(237, 235, 215);
+    font-size: 6.5px;
+    position: relative;
+    left: -2px;
+}
+
+@media (max-width: 850px) {
+    .left {
+        width: 100%;
+        margin-left: 90px;
+    }
+
+    .right {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .left {
+        margin: auto;
+    }
 }

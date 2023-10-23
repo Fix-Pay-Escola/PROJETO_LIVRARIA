@@ -144,10 +144,6 @@ body.dark {
     color: #eaebed;
 }
 
-:placeholder-shown {
-    color: red;
-}
-
 label {
     display: flex;
     border-radius: 5px;
