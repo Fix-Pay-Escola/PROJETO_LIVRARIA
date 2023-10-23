@@ -13,7 +13,8 @@ type Produto struct {
 	Descricao string;
 	Status string;
 	Autor string;
-	Editora string
+	Editora string;
+	Imagem string
 }
 
 func BuscaTodosOsProdutos() []Produto{
@@ -41,6 +42,7 @@ func BuscaTodosOsProdutos() []Produto{
 		 p.Descricao = descricao
 		 p.Status = status
 		 p.Autor = autor
+
 
 		 produtos = append(produtos, p)
 
