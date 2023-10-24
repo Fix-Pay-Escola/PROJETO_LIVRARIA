@@ -9,7 +9,7 @@ import(
 func Carregar_Rotas(){
 	http.HandleFunc("/", controllers.Index)
 	http.HandleFunc("/login", controllers.Login)
-	http.HandleFunc("/about-us",controllers.About_us)
+	http.HandleFunc("/about_us",controllers.About_us)
 	http.HandleFunc("/new",controllers.New)
 	http.HandleFunc("/insert",controllers.Insert)
 	http.HandleFunc("/delete",controllers.Delete)

@@ -14,14 +14,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="/_imagens/FPL3.ico">
-    <title>Livraria</title>
+    <title>Relação de Livros</title>
+    <link rel="icon" type="image/x-icon" href="/_imagens/FPL3.ico">
 </head>
 
 <body>
     <nav id="head">
         <div id="cab">
             <img src="/style/index-icon" width="56px" class="book" />
-            <a href="/" id="lib">Livraria</a>
+            <a href="/" id="lib">Livraria Fix Pay</a>
             <div class="checar">
                 <input type="checkbox" class="checkbox" id="check" />
                 <label class="fundo" for="check">
@@ -39,9 +40,9 @@
             </div>
             <section class="card">
                 <div>
-                    <table class="table table-striped table-hover mb-0">
+                    <table class="table table-striped table-borderless mb-1">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th>Nome</th>
                                 <th>Descrição</th>
                                 <th>Status</th>
@@ -53,8 +54,8 @@
                                 <td>{{.Nome}}</td>
                                 <td>{{.Descricao}}</td>
                                 <td>{{.Status}}</td>
-                                <td><a href="edit?id={{.Id}}" class="btn" id="btn-edit">Editar</a></td>
-                                <td><button onclick="onDelete('{{.Id}}')" class="btn" id="btn-del">Deletar</button></td>
+                                <td class="cell"><a href="edit?id={{.Id}}" class="btn" id="btn-edit">Editar</a></td>
+                                <td class="cell"><button onclick="onDelete('{{.Id}}')" class="btn" id="btn-del">Deletar</button></td>
                             </tr>
                             {{end}}
                         </tbody>

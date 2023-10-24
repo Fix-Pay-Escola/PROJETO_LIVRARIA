@@ -6,8 +6,10 @@ check.addEventListener("change", () => {
   main.classList.toggle("dark");
   const botao = document.querySelector("#head");
   botao.classList.toggle("dark");
-  const input = document.querySelector(".cont");
+  const input = document.querySelector("#btn-del");
   input.classList.toggle("dark");
-  const butCancel = document.querySelector(".cancelbtn");
-  butCancel.classList.toggle("dark");
+  const table = document.querySelector(".table");
+  table.classList.toggle("dark");
+  const backgBtn = document.querySelector(".cell");
+  backgBtn.classList.toggle("dark");
 });

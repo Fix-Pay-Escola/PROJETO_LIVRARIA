@@ -33,7 +33,7 @@ a:hover {
 }
 
 #head {
-    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.089);
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.2);
     color: #024a60;
     padding: 10px;
     margin-bottom: 10px;
@@ -54,15 +54,32 @@ a:hover {
     transition: 0.2s linear;
 }
 
-#head.dark {
+.dark #head {
     background-color: rgb(59, 67, 68);
-    color: #72a6b7;
+    color: #9fcbda;
     transition: 0.2s linear;
     background: linear-gradient(192deg, rgb(83, 89, 90) 0%, rgb(72, 80, 81) 50%, rgb(54, 66, 68) 100%);
 }
 
-#head.dark a:hover {
+ #head a:hover {
     color: #eaebed;
+}
+#container{
+    padding-top: 20px;
+}
+.table tbody tr td {
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 1.2em; 
+    opacity: 1;
+}
+
+.table tbody tr td:hover {
+    max-height: none;
+    white-space: normal;
+    opacity: 1;
 }
 
 .checar {
@@ -149,13 +166,13 @@ a:hover {
     transition: 0.1s linear;
 }
 
-#btn-add.dark {
+.dark #btn-add{
     background-color: #006a87;
     color: #eaebed;
     transition: 0.2s linear;
 }
 
-#btn-add.dark:hover {
+.dark #btn-add:hover {
     background-color: #014e64;
     color: #fff;
 }
@@ -165,28 +182,67 @@ a:hover {
     background-color: #64bbcc;
     color: #ecf6f9;
 }
-
+.dark #btn-edit{
+    background-color: #1d515f;
+}
 #btn-edit:hover {
     background-color: #549baa;
     color: #ffffff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.21);
 }
-
+.dark #btn-edit:hover{
+    background-color: #17404b;
+}
 #btn-del {
     border: none;
     background-color: #B31312;
     color: #f3d0d0;
 }
-
+.dark #btn-del{
+    background-color: #840d0d;
+}
+.dark #btn-del:hover{
+    background-color: #6f0b0b;
+}
 #btn-del:hover {
     background-color: #900909;
     color: #ffffff;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.321);
     transition: 0.2s linear;
 }
-
+.dark tr:nth-child(even) {
+    background-color: #313234;
+  }
+  .dark tr:nth-child(even) td.cell:hover {
+      background-color: #313234;
+    }
+td:hover{
+    background-color: rgb(226, 226, 226);
+    transition: 0.2s linear;
+}
+td.cell:hover {
+    background-color: #ffffff;
+}
+/*problema que vc quer resolver aqui emabixo*/
+.dark td.cell:hover{
+    background-color: #3a3b3d;
+}
+.dark .table{
+    background-color: #3c3d3f;
+    color: #eaebed;
+}
+.dark .card{
+    background-color: #3c3d3f;
+}
+.dark td{
+    color: #c2c2c5;
+}
+.dark td:hover{
+    background-color: #2d2e30;
+    color: #eaebed;
+}
 footer {
     display: flex;
     justify-content: center;
-    color: #059ac8;
+    color: #29b2dc;
 }

@@ -21,7 +21,7 @@ func Login(w http.ResponseWriter, r *http.Request){
 	temp.ExecuteTemplate(w,"Login",nil)
 }
 func About_us(w http.ResponseWriter, r*http.Request){
-	temp.ExecuteTemplate(w,"About Us",nil)
+	temp.ExecuteTemplate(w,"AboutUs",nil)
 }
 func Alugueis(w http.ResponseWriter, r*http.Request){
 	todososprodutos := models.BuscaTodosOsProdutos()
