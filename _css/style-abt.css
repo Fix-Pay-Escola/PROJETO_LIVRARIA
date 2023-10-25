@@ -3,11 +3,17 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 body{
     height: 100vh;
-  background: linear-gradient(180deg, rgba(1, 167, 194, 1) 0%, rgba(1, 167, 194, 1) 50%, rgba(0, 105, 137, 1) 100%);
+  background: linear-gradient(180deg, rgba(1, 167, 194, 1) 0%, rgba(0, 105, 137, 1) 100%);
   color:rgb(0, 40, 52);
+  height: 100vh;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .top{
     display: flex;
@@ -15,18 +21,98 @@ body{
     justify-content: center;
     flex-direction: column;
 }
-.top h3{
+.img{
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.2s linear;
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.212))
+}
+.img:hover{
+    transform:scale(1.1);
+    transition: 0.2s linear;
+}
+h1{
+color:#006989;
+font-weight: 500;
+font-size: 25pt;
+}
+.top h2{
     text-align: center;
-    margin: auto 50px;
+    margin: 10px 50px;
+    font-size: 17pt;
+    font-weight: 400;
+}
+.square{
+    border: 5px solid rgb(0, 105, 137);
+    border-radius: 40%;
+}
+.line{
+    width: 80%;
+    height: 1px;
+    background-color: #006989;
+    margin: 10px auto;
+}
+h3{
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14pt;
+    color: #006989;
+}
+.title{
+    color: #119bb1;
+}
+.words{
+    color: #007090;
 }
 .content {
     margin: 30px 50px;
 }
+.topbar{
+    width: 100%;
+    height: 300px;
+    background-color: #005873;
+    margin-top: -100px;
+    position: absolute;
+    top:0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.222);
+    z-index: 1;
+}
+.card{
+    flex-direction: column;
+    background-color: #e0e1e3ae;
+    background-image: url(/_imagens/pattern-blur.svg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    border-radius: 10px;
+    height: 700px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: 0.2s linear;;
+    z-index: 2;
+} 
+.card:hover{
+    background-color: #eaebed;
+    transition: 0.2s linear;
+}
+.card .top{
+    margin-top: 40px;
+}
 p{
-    text-indent: 50px;
+    text-indent: 43px;
+    width: 650px;
+    font-size: 14pt;
+    font-weight: 100;
+    line-height: 1.5;
 }
 footer{
+    position: fixed;
+    bottom: 0;
     display: flex;
     justify-content: center;
     font-size: 10pt;
+    color: #059ac8;
 }

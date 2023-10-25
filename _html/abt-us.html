@@ -1,6 +1,7 @@
 {{define "AboutUs"}}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,37 @@
     <link rel="stylesheet" href="/_css/style-abt.css">
     <link rel="icon" type="image/x-icon" href="/_imagens/FPL3.ico">
 </head>
+
 <body>
-    <h1>Boas vindas à Livraria Fix Pay!</h1>
-    <h2>Este projeto tem como finalidade simplificar o processo de cadastro, consulta e empréstimo dos livros do catálogo Fix Pay.</h2>
-    <p>Após realizar login (este sendo realizado apenas por administradores) você terá acesso à tabela de livros podendo, como dito acima, administrar e modificar o catálogo.</p>
-    <p>Para usuários disponibilizamos apenas a tabela com a ficha técnica dos livros e a disponibilidade dos mesmos.
-    Como não há um período de uso pré-setado, optamos por ser fiel a esse aspecto e não implementar o sistema de deadline.</p>
-    </body>
-        <footer>
-            &copy;Desenvolvido por Fix Pay
-        </footer>
+    <div class="content">
+        <div class="card">
+            <div class="top">
+                <div class="img"> <a href="/"><img src="/_imagens/biblioteca-fixpay-website-favicon-color_04_.ico"
+                    alt="Logo Fix Pay" width="80px" ></a></div>
+                <h1>Boas vindas à <span class="title">Livraria Fix Pay!</span></h1>
+                <h2>Este projeto tem como finalidade simplificar o processo de <span class="words">cadastro</span>, <span class="words">consulta</span> e <span class="words">empréstimo</span> dos
+                    livros do
+                    catálogo Fix Pay.</h2>
+            </div>
+            <div class="line"></div>
+            <hr class="square">
+            <h3>Instruções para administradores</h3>
+            <p class="adm">Após concluir o login (este sendo realizado apenas por administradores) você terá acesso à tabela de livros
+                podendo, como citado anteriormente, administrar e modificar o catálogo.</p>
+                <div class="line"></div>
+                <hr class="square">
+                <h3>Instruções para usuários</h3>
+            <p class="user">Para usuários disponibilizamos apenas a tabela com a ficha técnica dos livros e a disponibilidade dos
+                mesmos.
+                Como não há um período de uso pré-definido, optamos por ser fiel a esse aspecto e não implementar o
+                sistema de
+                deadline.</p>
+        </div>
+    </div>
+    <div class="topbar"></div>
+</body>
+<footer>
+    &copy;Desenvolvido por Fix Pay
+</footer>
 </html>
 {{end}}

@@ -67,4 +67,10 @@ func Carregar_arquivos(){
 	http.HandleFunc("/_css/style-abt.css",func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w,r,"_css/style-abt.css")
 	})
+	http.HandleFunc("/_imagens/biblioteca-fixpay-website-favicon-color_04_.ico",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_imagens/biblioteca-fixpay-website-favicon-color_04_.ico")
+	})
+	http.HandleFunc("/_imagens/pattern-blur.svg",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_imagens/pattern-blur.svg")
+	})
 }

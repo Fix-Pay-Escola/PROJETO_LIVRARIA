@@ -38,20 +38,20 @@ a:hover {
     padding: 10px;
     margin-bottom: 10px;
     transition: 0.2s linear;
+    position: sticky;
     background: linear-gradient(58deg, rgb(204, 224, 231) 0%, rgb(152, 178, 187) 50%, rgb(113, 156, 172) 100%);
 }
 
 #head a {
     margin-left: 41%;
-    font-size: larger;
+    font-size: 15pt;
     text-shadow: 0px 1px 1.2px rgba(0, 0, 0, 0.249);
     transition: 0.2s linear;
 }
 
 #head a:hover {
     color: #0c5166;
-    font-size: 15pt;
-    transition: 0.2s linear;
+    font-size: 16pt;
 }
 
 .dark #head {
@@ -61,8 +61,8 @@ a:hover {
     background: linear-gradient(192deg, rgb(83, 89, 90) 0%, rgb(72, 80, 81) 50%, rgb(54, 66, 68) 100%);
 }
 
- #head a:hover {
-    color: #eaebed;
+.dark #head a:hover {
+    color: #d8deeb;
 }
 #container{
     padding-top: 20px;
