@@ -60,8 +60,7 @@ a:hover {
     transition: 0.2s linear;
     background: linear-gradient(192deg, rgb(83, 89, 90) 0%, rgb(72, 80, 81) 50%, rgb(54, 66, 68) 100%);
 }
-
-.dark #head a:hover {
+.dark #head a:hover{
     color: #d8deeb;
 }
 #container{
