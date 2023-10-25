@@ -28,6 +28,3 @@ paleta de cores [tema escuro]:
 • cor 5: #01445e;
 
 • cor 6: #303133;
-
-descricao
-  text-overflow: ellipsis;
