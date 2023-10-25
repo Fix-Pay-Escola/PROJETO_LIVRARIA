@@ -12,4 +12,4 @@ check.addEventListener("change", () => {
   update.classList.toggle("dark");
   const cb = document.querySelector(".btn-back");
   cb.classList.toggle("dark");
-});
+});  

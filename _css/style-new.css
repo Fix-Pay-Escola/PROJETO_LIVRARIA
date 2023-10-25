@@ -88,7 +88,7 @@ body.dark {
     background-color: #15404b;
     transition: 0.2s linear;
 }
-.btn-update.dark{
+.dark .btn-update{
     background-color: #1f5463;
     color: #d9e1e4;
 }
@@ -113,9 +113,9 @@ body.dark {
     color: #cad4d7;
 }
 
-.btn-back.dark:hover {
+.dark .btn-back:hover {
     background-color: #44545a;
-    transform: 0.2s linear;
+    transition: 0.2s linear;
 }
 
 .formulary {
