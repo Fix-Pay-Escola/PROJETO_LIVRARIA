@@ -1,4 +1,4 @@
-/*const check = document.getElementById("check");
+const check = document.getElementById("check");
 
 check.addEventListener("change", () => {
   document.body.classList.toggle("dark");
@@ -13,7 +13,6 @@ check.addEventListener("change", () => {
   const blocoCap = document.querySelector(".acervi");
   blocoCap.classList.toggle("dark");
 });
-
 document.addEventListener('DOMContentLoaded', function() {
   var hoverTriggers = document.querySelectorAll('.hover-trigger');
   var casa = document.getElementById('casa');
@@ -26,39 +25,5 @@ document.addEventListener('DOMContentLoaded', function() {
   hoverTriggers.forEach(function(element) {
     element.addEventListener('mouseenter', handleMouseEnter);
     element.addEventListener('mouseleave', handleMouseLeave);
-  });
-});
-*/
-document.addEventListener('DOMContentLoaded', function() {
-  var hoverTriggers = document.querySelectorAll('.hover-trigger');
-  var casa = document.getElementById('casa');
-
-  function handleMouseEnter() {
-    if (document.body.classList.contains('dark')) {
-      casa.style.color = 'white';
-    } else {
-      casa.style.color = 'black';
-    }
-  }
-
-  function handleMouseLeave() {
-    if (document.body.classList.contains('dark')) {
-      casa.style.color = 'white';
-    } else {
-      casa.style.color = '#0a7e90';
-    }
-  }
-
-  hoverTriggers.forEach(function(element) {
-    element.addEventListener('mouseenter', handleMouseEnter);
-    element.addEventListener('mouseleave', handleMouseLeave);
-  });
-
-  const check = document.getElementById("check");
-  check.addEventListener("change", () => {
-    document.body.classList.toggle("dark");
-    hoverTriggers.forEach(function(element) {
-      element.classList.toggle("dark");
-    });
   });
 });
