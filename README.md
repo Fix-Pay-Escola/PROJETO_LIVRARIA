@@ -3,8 +3,8 @@
 Uma forma mais dinâmica de consultar sua bilbioteca!
 
 ## Sumário
- - <a href="#-tecnologias-utilizadas">Tecnologias utilizadas:</a>
-
+ - <a href="#-used-tech">Tecnologias utilizadas:</a>
+ - <a href="#-color-palette">Paletas de cores:</a>
 
 
 paleta de cores[tema claro]:
