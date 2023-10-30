@@ -2,10 +2,6 @@
 ![Livraria](./_imagens/biblioteca-fixpay-website-favicon-color_03_.ico)
 Uma forma mais dinâmica de consultar sua bilbioteca!
 
-## Sumário
- - <a href="#-used-tech">Tecnologias utilizadas:</a>
- - <a href="#-color-palette">Paletas de cores:</a>
-
 
 paleta de cores[tema claro]:
 
