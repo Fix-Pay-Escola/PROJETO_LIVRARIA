@@ -3,7 +3,7 @@
 Uma forma mais dinâmica de consultar sua bilbioteca!
 
 ## Sumário
- - <a href="#-tecnologias-utilizadas">tecnologias utilizadas:</a>
+ - <a href="#-tecnologias-utilizadas">Tecnologias utilizadas:</a>
 
 
 
