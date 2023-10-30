@@ -20,7 +20,7 @@ goin.addEventListener("click", function handleClick() {
   const login = loginInput.value;
   const pass = passInput.value;
 
-  if (login === "adm" && pass === "123456789") {
+  if (login === "imthepontes@gmail.com" && pass === "123456789") {
     loginInput.value = "";
     passInput.value = "";
     window.location = "/Acervo_Adm"
