@@ -47,8 +47,12 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="status">Status:</label>
-                                <input type="text" name="status" class="formulary" placeholder="Disponibilidade">
+                                <label for="status">Disponibilidade:</label>
+                                <select name="status" id="disponib" class="formulary">
+                                    <option value="Selecione">Selecione</option>
+                                    <option value="Disponível">Disponível</option>
+                                    <option value="Indisponível">Indisponível</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -56,7 +60,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="isbn">ISBN:</label>
-                                <input type="number" name="isbn" class="formulary" placeholder="Código">
+                                <input type="number" name="isbn" class="formulary" placeholder="ISBN">
                             </div>
                         </div>
                     </div>
@@ -72,7 +76,12 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="autor">Editora:</label>
-                                <input type="text" name="editora" class="formulary" placeholder="Editora">
+                                <select name="editora" id="editora" class="formulary">
+                                    <option value="O'Reilly">O'Reilly</option>
+                                    <option value="Casa do Código">Casa do Código</option>
+                                    <option value="novatec">novatec</option>
+                                    <option value="Alta_Books">Alta Books</option>
+                                    <option value="Sextante">Sextante</option>
                             </div>
                         </div>
                     </div>
