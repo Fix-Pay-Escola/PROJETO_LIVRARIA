@@ -14,7 +14,6 @@ type Produto struct {
 	Status string;
 	Autor string;
 	Editora string;
-	Imagem string
 }
 
 func BuscaTodosOsProdutos() []Produto{

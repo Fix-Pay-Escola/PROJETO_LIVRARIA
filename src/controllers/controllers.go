@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"golang/src/db"
 	"golang/src/models"
 	"html/template"
 	"log"
@@ -18,7 +19,25 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Login(w http.ResponseWriter, r *http.Request){
-	temp.ExecuteTemplate(w,"Login",nil)
+	db := db.ConectacomBancoDeDados()
+	if r.Method == http.MethodPost {
+		// Obtenha os dados do formulário (e-mail e senha)
+		email := r.PostFormValue("email")
+		password := r.PostFormValue("password")
+
+		// Consulte o banco de dados para verificar as credenciais
+		if verifyCredentials(email, password) {
+			http.Redirect(w, r, "/Acervo_Adm", http.StatusSeeOther)
+			return
+		}else{
+			http.Redirect(w, r, "/login?error=true", http.StatusSeeOther)
+		}
+
+	defer db.Close()
+
+	
+}
+temp.ExecuteTemplate(w,"Login",nil)
 }
 func About_us(w http.ResponseWriter, r*http.Request){
 	temp.ExecuteTemplate(w,"AboutUs",nil)
@@ -84,4 +103,28 @@ func Update(w http.ResponseWriter, r *http.Request){
 
 	 http.Redirect(w,r,"/Acervo_Adm",301)
 	}
+}
+
+func verifyCredentials(email, password string) bool {
+
+	db := db.ConectacomBancoDeDados()
+	defer db.Close()
+    // Consulte o banco de dados para obter as credenciais do usuário
+    var storedPassword string
+    err := db.QueryRow("SELECT password FROM users WHERE email = $1", email).Scan(&storedPassword)
+    if err != nil {
+        // Usuário não encontrado
+        return false
+    }
+
+    // Verifique se a senha fornecida corresponde à senha armazenada
+    // Neste exemplo, as senhas não são salvas com hash, mas isso é altamente recomendado na prática.
+    if password == storedPassword {
+        // As credenciais são corretas
+        return true
+    }
+
+    // Senha incorreta
+    return false
+
 }

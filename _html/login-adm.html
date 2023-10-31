@@ -15,28 +15,29 @@
 <body>
   <div class="main">
     <div class="left">
-      <h1 style="white-space:nowrap">Faça seu&nbsp;<span style="color: #4796ac;" }> login!</span></h1>
+      <h1 style="white-space:nowrap">Faça seu&nbsp;<span style="color: #4796ac;"> login!</span></h1>
       <br>
+      <div id="error-message" style="color: red; display:none;">Credenciais incorretas. Tente novamente.</div>
+      <form action="/login" method="post"> <!-- Adicione o formulário com método POST aqui -->
+        <div class="container">
+          <label for="login" class="upass"><b>Usuário</b></label> <br>
+          <input class="cont" type="text" placeholder="Inserir usuário" name="email" id="login" required>
+        </div>
+        <div class="container">
+          <label for="pass" class="upass"><b>Senha</b></label> <br>
+          <input class="cont" type="password" placeholder="Inserir senha" name="password" id="password" required>
+        </div>
 
-      <div class="container">
-        <label for="login" class="upass"><b>Usuário</b></label> <br>
-        <input class="cont" type="text" placeholder="Inserir usuário" name="login" id="login" required>
-      </div>
-      <div class="container">
-        <label for="pass" class="upass"><b>Senha</b></label> <br>
-        <input class="cont" type="password" placeholder="Inserir senha" name="pass" id="pass" required>
-      </div>
-
-      <div class="button">
-        <button type="submit" class="boton" id="goin">Entrar</button>
-        <button type="submit" class="cancelbtn" id="out" href="/">Cancelar</button>
-      </div>
+        <div class="button">
+          <button type="submit" class="boton" id="goin">Entrar</button>
+        </div>
+      </form> <!-- Feche o formulário aqui -->
     </div>
 
     <div class="right">
       <img src="/styles/image/adm_image" alt="pessoa fazendo cadastro no computador" id="img-login">
     </div>
-  </div>
+</div>
   <div class="checar">
     <input type="checkbox" class="checkbox" id="check" />
     <label class="fundo" for="check">
@@ -49,5 +50,15 @@
   &copy;Desenvolvido por Fix Pay
 </footer>
 <script src="/script/js/login-script"></script>
+<script>
+   // Verificar se a URL possui um parâmetro "error"
+   const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get("error");
+
+    if (error === "true") {
+        // Se houver um erro, tornar visível a mensagem de erro
+        document.getElementById("error-message").style.display = "block";
+    }
+</script>
 </html>
 {{end}}
