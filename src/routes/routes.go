@@ -9,12 +9,13 @@ import(
 func Carregar_Rotas(){
 	http.HandleFunc("/", controllers.Index)
 	http.HandleFunc("/login", controllers.Login)
-	http.HandleFunc("/about_us",controllers.About_us)
+	http.HandleFunc("/sobre_nos",controllers.About_us)
 	http.HandleFunc("/new",controllers.New)
 	http.HandleFunc("/insert",controllers.Insert)
 	http.HandleFunc("/delete",controllers.Delete)
 	http.HandleFunc("/edit",controllers.Edit)
 	http.HandleFunc("/update",controllers.Update)
-	http.HandleFunc("/Acervo_Adm",controllers.Alugueis)
-	http.HandleFunc("/Acervo",controllers.Alugueis_user)
+	http.HandleFunc("/acervo_adm",controllers.Alugueis)
+	http.HandleFunc("/acervo",controllers.Alugueis_user)
+	http.HandleFunc("/404",controllers.Error)
 }

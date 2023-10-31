@@ -28,10 +28,10 @@ func BuscaTodosOsProdutos() []Produto{
 	produtos := []Produto{}
 
 	for selectDeTodosOsProdutos.Next(){
-		var id int
-		var nome, descricao, status, isbn,autor,editora string
+		var id,id_editora  int
+		var nome, descricao, status,isbn,autor string
 
-		err = selectDeTodosOsProdutos.Scan(&id, &isbn, &nome, &descricao, &status,&autor,&editora)
+		err = selectDeTodosOsProdutos.Scan(&id, &nome, &descricao,&isbn,&autor,&id_editora,&status)
 		 if err != nil {
 			panic(err.Error())
 		 }
@@ -40,9 +40,6 @@ func BuscaTodosOsProdutos() []Produto{
 		 p.Nome = nome
 		 p.Descricao = descricao
 		 p.Status = status
-		 p.Autor = autor
-
-
 		 produtos = append(produtos, p)
 
 		 
@@ -52,7 +49,7 @@ func BuscaTodosOsProdutos() []Produto{
 
 }
 
-func CriarNovoProduto(nome,descricao,status,isbn,autor,editora string){
+func CriarNovoProduto(nome,descricao,status,isbn,autor string, editora int){
 	db := db.ConectacomBancoDeDados()
 
 	insereDadosNoBanco, err := db.Prepare("insert into livros (nome,descricao,status,isbn,autor,editora) Values ($1,$2,$3,$4,$5,$6)")
@@ -90,10 +87,10 @@ func EditaProduto(id string) Produto{
 	produtoParaAtualizar := Produto{}
 
 	for produtoDoBanco.Next() {
-		var  id int
-		var nome,descricao,status,isbn,autor,editora string
+		var  id, id_editora int
+		var nome,descricao,status,isbn,autor string
 
-		err = produtoDoBanco.Scan(&id,&isbn,&nome,&descricao,&status,&autor,&editora)
+		err = produtoDoBanco.Scan(&id,&nome,&descricao,&isbn,&autor,&id_editora,&status)
 
 		if err != nil{
 			panic(err.Error())
@@ -104,7 +101,15 @@ func EditaProduto(id string) Produto{
 		produtoParaAtualizar.Isbn = isbn
 		produtoParaAtualizar.Status = status
 		produtoParaAtualizar.Autor = autor
-		produtoParaAtualizar.Editora = editora
+		if id_editora == 1 {
+			produtoParaAtualizar.Editora = "Novatec"
+		}else if(id_editora == 2){
+			produtoParaAtualizar.Editora = "Alta Books"
+		}else if (id_editora == 3){
+			produtoParaAtualizar.Editora = "OReilly"
+		}else if (id_editora == 4){
+			produtoParaAtualizar.Editora = "Casa do Codigo"
+		}
 	}
 	defer db.Close()
 	return produtoParaAtualizar

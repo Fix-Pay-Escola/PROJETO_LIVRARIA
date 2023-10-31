@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"golang/src/db"
 	"golang/src/models"
 	"html/template"
@@ -27,7 +28,7 @@ func Login(w http.ResponseWriter, r *http.Request){
 
 		// Consulte o banco de dados para verificar as credenciais
 		if verifyCredentials(email, password) {
-			http.Redirect(w, r, "/Acervo_Adm", http.StatusSeeOther)
+			http.Redirect(w, r, "/acervo_adm", http.StatusSeeOther)
 			return
 		}else{
 			http.Redirect(w, r, "/login?error=true", http.StatusSeeOther)
@@ -53,7 +54,23 @@ func Alugueis_user(w http.ResponseWriter, r*http.Request){
 }
 func Edit(w http.ResponseWriter, r*http.Request){
 
+	
 	idDoProduto := r.URL.Query().Get("id")
+
+	idint,err := strconv.Atoi(idDoProduto)
+	if err != nil {
+		fmt.Print("Erro na conversao do ID")
+	}
+	exists, err := Checando_Existencia(idint)
+	if err != nil {
+		http.Error(w, "Erro ao verificar o banco de dados", http.StatusInternalServerError)
+		return
+	}
+
+	if !exists {
+		handleNotFound(w, r)
+		return
+	}
 
 	produto := models.EditaProduto(idDoProduto)
 	temp.ExecuteTemplate(w,"Edit",produto)
@@ -64,14 +81,25 @@ func New(w http.ResponseWriter, r*http.Request){
 
 func Insert(w http.ResponseWriter, r*http.Request){
 	if r.Method == "POST"{
+		
 		nome := r.FormValue("nome")
 		descricao := r.FormValue("descricao")
 		status := r.FormValue("status")
 		isbn := r.FormValue("isbn")
 		autor := r.FormValue("autor")
 		editora := r.FormValue("editora")
+		id_editora := 0
+		if editora == "Novatec" {
+			id_editora = 1
+		}else if editora == "Alta Books"{
+			id_editora = 2
+		}else if editora == "OReilly"{
+			id_editora = 3
+		} else if editora == "Casa do Codigo"{
+			id_editora = 4
+		}
 
-		models.CriarNovoProduto(nome,descricao,status,isbn,autor,editora)
+		models.CriarNovoProduto(nome,descricao,status,isbn,autor,id_editora)
 	}
 	http.Redirect(w,r,"/Acervo_Adm",301)
 }
@@ -127,4 +155,27 @@ func verifyCredentials(email, password string) bool {
     // Senha incorreta
     return false
 
+}
+
+func Checando_Existencia(id int) (bool,error){
+	db := db.ConectacomBancoDeDados()
+
+	defer db.Close()
+
+	var exists bool
+	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM livros WHERE id=$1)", id).Scan(&exists)
+	if err != nil {
+		return false, err
+	}
+	return exists, nil
+}
+
+func Error(w http.ResponseWriter, r *http.Request){
+
+	temp.ExecuteTemplate(w,"error",nil)
+}
+
+func handleNotFound(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
+	fmt.Fprint(w, "ERROR 404:Página não encontrada")
 }
