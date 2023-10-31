@@ -74,13 +74,50 @@ a:hover {
     max-height: 1.2em; 
     opacity: 1;
 }
-
-.table tbody tr td:hover {
-    max-height: none;
-    white-space: normal;
-    opacity: 1;
+.button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
-
+.janela_modal{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    top:0;
+    left:0;
+    background-color: #0000003b;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.janela_modal.open{
+    display:flex;
+}
+.modal{
+    width: 60%;
+    min-width: 450px;
+    min-height: 200px;
+    background-color: #ffffff8f;
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 10px;
+}
+.close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:-5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: red;
+    color:#EEE2DE;
+}
 .checar {
     display: flex;
     align-items: flex-start;

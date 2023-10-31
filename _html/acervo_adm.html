@@ -52,11 +52,18 @@
                             {{range .}}
                             <tr>
                                 <td>{{.Nome}}</td>
-                                <td>{{.Descricao}}</td>
+                                <td onclick="openModal()">{{.Descricao}}<button class=button><i class="bi bi-three-dots"></i></button></td>
                                 <td>{{.Status}}</td>
-                                <td class="cell"><a href="edit?id={{.Id}}" class="btn" id="btn-edit">Editar</a></td>
-                                <td class="cell"><button onclick="onDelete('{{.Id}}')" class="btn" id="btn-del">Deletar</button></td>
+                                <td class="cell"><a href="edit?id={{.Id}}" class="btn" id="btn-edit"> <i class="bi bi-pencil-square"></i></a></td>
+                                <td class="cell"><button onclick="onDelete('{{.Id}}')" class="btn" id="btn-del"><i class="bi bi-trash3"></i></button></td>
                             </tr>
+                            <div class="janela_modal" id="janela_modal">
+                                <div class="modal">
+                                <button class="close" id="close"><i class="bi bi-x-circle"></i></button>
+                                    <h1>{{.Nome}}</h1>
+                                    {{.Descricao}}
+                                </div>
+                             </div>
                             {{end}}
                         </tbody>
                     </table>
@@ -64,6 +71,7 @@
             </section>
         </div>
     </div>
+<script src="/_js/acv.js"></script>
 </body>
 <footer>&copy; Desenvolvido por Fix Pay</footer>
 <script>
@@ -74,7 +82,6 @@
         }
     }
 </script>
-<script src="/_js/acv.js"></script>
 
 </html>
 {{end}}
