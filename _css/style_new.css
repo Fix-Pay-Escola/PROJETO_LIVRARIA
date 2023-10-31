@@ -133,11 +133,10 @@ body.dark {
     color: #eaebed;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
 }
-#disponib{
+#disponib,
+#editora{
     color:rgba(0, 0, 0, 0.6);
 }
-
-
 .checar {
     display: flex;
     align-items: start;
