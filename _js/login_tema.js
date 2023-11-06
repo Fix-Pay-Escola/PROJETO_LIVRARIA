@@ -10,6 +10,8 @@ check.addEventListener("change", () => {
   input.classList.toggle("dark");
   const butCancel = document.querySelector(".cancelbtn");
   butCancel.classList.toggle("dark");
+  const pass = document.querySelector(".upass");
+  pass.classList.toggle("dark");
 });
 
 const goin = document.getElementById("goin");

@@ -17,8 +17,8 @@
     <div class="left">
       <h1 style="white-space:nowrap">Faça seu&nbsp;<span style="color: #4796ac;"> login!</span></h1>
       <br>
-      <div id="error-message" style="color: red; display:none;">Credenciais incorretas. Tente novamente.</div>
-      <form action="/login" method="post"> <!-- Adicione o formulário com método POST aqui -->
+      <div id="error-message" style="color: rgb(187, 19, 19); display:none;">Credenciais incorretas. Tente novamente.</div>
+      <form action="/login" method="post">
         <div class="container">
           <label for="login" class="upass"><b>Usuário</b></label> <br>
           <input class="cont" type="text" placeholder="Inserir usuário" name="email" id="login" required>
@@ -31,7 +31,8 @@
         <div class="button">
           <button type="submit" class="boton" id="goin">Entrar</button>
         </div>
-      </form> <!-- Feche o formulário aqui -->
+      </form>
+          <a href="/"><button type="submit" class="cancelbtn" id="goout">Voltar</button></a>
     </div>
 
     <div class="right">
@@ -51,12 +52,10 @@
 </footer>
 <script src="/script/js/login-script"></script>
 <script>
-   // Verificar se a URL possui um parâmetro "error"
    const urlParams = new URLSearchParams(window.location.search);
     const error = urlParams.get("error");
 
     if (error === "true") {
-        // Se houver um erro, tornar visível a mensagem de erro
         document.getElementById("error-message").style.display = "block";
     }
 </script>

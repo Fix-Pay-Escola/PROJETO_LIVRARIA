@@ -156,6 +156,9 @@ label {
     color:#025368 ;
     margin-left: 4vw;
 }
+.upass .dark{
+    color:#b5babc;
+}
 input {
     display: flex;
     background-color: #dae2e5;
