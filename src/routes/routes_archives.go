@@ -58,8 +58,8 @@ func Carregar_arquivos(){
 	http.HandleFunc("/_css/style-new.css",func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w,r,"_css/style_new.css")
 	})
-	http.HandleFunc("/_imagens/amin-acv.svg",func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w,r,"_imagens/amin_acv.svg")
+	http.HandleFunc("/_imagens/amin_acv.svg",func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w,r,"_imagens/amin-acv.svg")
 	})
 	http.HandleFunc("/_js/new-add.js",func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w,r,"_js/new_add.js")

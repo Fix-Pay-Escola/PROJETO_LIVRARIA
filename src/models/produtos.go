@@ -52,7 +52,7 @@ func BuscaTodosOsProdutos() []Produto{
 func CriarNovoProduto(nome,descricao,status,isbn,autor string, editora int){
 	db := db.ConectacomBancoDeDados()
 
-	insereDadosNoBanco, err := db.Prepare("insert into livros (nome,descricao,status,isbn,autor,editora) Values ($1,$2,$3,$4,$5,$6)")
+	insereDadosNoBanco, err := db.Prepare("insert into livros (nome,descricao,status,isbn,autor,id_editora) Values ($1,$2,$3,$4,$5,$6)")
 	if err != nil {
 		panic(err.Error())
 	}

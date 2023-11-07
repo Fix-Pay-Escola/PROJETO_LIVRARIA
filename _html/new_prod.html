@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="form-group">
-                                <label for="descricao">Sinopse:</label>
+                                <label for="sinop">Sinopse:</label>
                                     <textarea name="descricao" rows="4" cols="50" class="formulary" id="sinop" placeholder="Sinopse do livro"></textarea>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="status">Disponibilidade:</label>
+                                <label for="disponib">Disponibilidade:</label>
                                 <select name="status" id="disponib" class="formulary">
                                     <option value="Selecione">Selecione</option>
                                     <option value="Disponível">Disponível</option>
@@ -59,7 +59,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="isbn">ISBN:</label>
-                                <input type="number" name="isbn" class="formulary" placeholder="ISBN">
+                                <input type="number" name="isbn" id="isbn" class="formulary" placeholder="ISBN">
                                 
                             </div>
                         </div>
@@ -68,14 +68,14 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="autor">Autor:</label>
-                                <input type="text" name="autor" class="formulary" placeholder="Escritor">
+                                <input type="text" name="autor" id="autor" placeholder="Escritor">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="autor">Editora:</label>
+                                <label for="editora">Editora:</label>
                                 <select name="editora" id="editora" class="formulary">
                                     <option value="Selecione">Selecione</option>
                                     <option value="O'Reilly">O'Reilly</option>
@@ -87,12 +87,12 @@
                         </div>
                     </div>
                     <button type="submit" value="salvar" class="btn-save">Salvar</button>
-                    <a class="btn-back" href="/Acervo_Adm">Voltar</a>
+                    <a class="btn-back" href="/acervo_adm?page=1">Voltar</a>
                 </form>
             </div>
             <div class="right">
                 <div class="img">
-                    <img src="/_imagens/amin-acv.svg" class="img"/>
+                    <img src="/_imagens/amin_acv.svg" class="img"/>
                 </div>
             </div>
     </div>

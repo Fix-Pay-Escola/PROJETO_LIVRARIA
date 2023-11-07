@@ -101,7 +101,7 @@ func Insert(w http.ResponseWriter, r*http.Request){
 
 		models.CriarNovoProduto(nome,descricao,status,isbn,autor,id_editora)
 	}
-	http.Redirect(w,r,"/Acervo_Adm",301)
+	http.Redirect(w,r,"/acervo_adm",301)
 }
 
 func Delete(w http.ResponseWriter, r *http.Request){
