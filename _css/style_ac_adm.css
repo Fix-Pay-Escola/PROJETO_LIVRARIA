@@ -73,11 +73,11 @@ a:hover {
     text-overflow: ellipsis;
     max-height: 1.2em; 
     opacity: 1;
+    cursor: pointer;
 }
-.button{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.truncate-text{
+    border: none;
+    background-color: inherit;
 }
 .janela_modal{
     width: 100vw;
