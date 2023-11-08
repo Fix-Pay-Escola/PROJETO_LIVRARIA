@@ -11,27 +11,24 @@ check.addEventListener("change", () => {
   table.classList.toggle("dark")
   const backgBtn = document.querySelector(".cell")
   backgBtn.classList.toggle("dark")
+  const description = document.querySelector(".truncate-text");
+  description.classList.toggle("dark");
 })
 
 function expandText() {
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('truncate-text')) {
       const td = e.target;
-      const tr = td.parentElement;
-
       if (td.getAttribute('data-expanded') === 'true') {
-        td.style.whiteSpace = 'nowrap'
-        td.style.overflow = 'hidden'
-        td.style.textOverflow = 'ellipsis'
-        td.style.height = '1.2em'
-        tr.style.verticalAlign = 'top'
-        td.setAttribute('data-expanded', 'false')
+        td.style.whiteSpace = 'nowrap';
+        td.style.overflow = 'hidden';
+        td.style.height = '1.2em';
+        td.setAttribute('data-expanded', 'false');
       } else {
-        td.style.whiteSpace = 'normal'
-        td.style.overflow = 'visible'
-        td.style.height = 'auto'
-        tr.style.verticalAlign = 'middle'
-        td.setAttribute('data-expanded', 'true')
+        td.style.whiteSpace = 'normal';
+        td.style.overflow = 'visible';
+        td.style.height = 'auto';
+        td.setAttribute('data-expanded', 'true');
       }
     }
   });

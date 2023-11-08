@@ -44,7 +44,7 @@
                         {{range .}}
                         <tr>
                             <td>{{.Nome}}</td>
-                            <td>{{.Descricao}}</td>
+                            <td><button class="truncate-text" data-id="{{.Id}}" onclick="expandText(this)" style="outline: none;"><p>{{.Descricao}}</p></button></td>
                             <td>{{.Status}}</td>
                         </tr>
                         {{end}}
@@ -64,7 +64,7 @@
          }
     }
 </script>
-<script src="/_js/acv.js"></script>pt
+<script src="/_js/acv.js"></script>
 
 </html>
 {{end}}

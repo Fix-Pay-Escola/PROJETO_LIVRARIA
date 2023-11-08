@@ -79,44 +79,12 @@ a:hover {
     border: none;
     background-color: inherit;
 }
-.janela_modal{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    top:0;
-    left:0;
-    background-color: #0000003b;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+.dark .truncate-text{
+    color: #c2c2c5
 }
-.janela_modal.open{
-    display:flex;
-}
-.modal{
-    width: 60%;
-    min-width: 450px;
-    min-height: 200px;
-    background-color: #ffffff8f;
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 10px;
-}
-.close{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top:-5px;
-    right: -5px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: red;
-    color:#EEE2DE;
+.truncate-text:active,
+.truncate-text:focus {
+  outline: none;
 }
 .checar {
     display: flex;
@@ -261,7 +229,7 @@ td.cell:hover {
 }
 /*problema que vc quer resolver aqui emabixo*/
 .dark td.cell:hover{
-    background-color: #3a3b3d;
+    background-color: inherit;
 }
 .dark .table{
     background-color: #3c3d3f;
