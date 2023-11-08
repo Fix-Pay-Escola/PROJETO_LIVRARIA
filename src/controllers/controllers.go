@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"math"
 )
 
 var temp = template.Must((template.ParseGlob("_html/*.html")))
@@ -42,10 +43,45 @@ temp.ExecuteTemplate(w,"Login",nil)
 func About_us(w http.ResponseWriter, r*http.Request){
 	temp.ExecuteTemplate(w,"AboutUs",nil)
 }
-func Alugueis(w http.ResponseWriter, r*http.Request){
-	todososprodutos := models.BuscaTodosOsProdutos()
-	temp.ExecuteTemplate(w,"Alugueis",todososprodutos)
+func Alugueis(w http.ResponseWriter, r *http.Request) {
+    // Parâmetros para paginação
+    page := 1 // Página atual
+    itemsPerPage := 10 // Itens por página
 
+    // Obtenha o valor da página da solicitação
+    pageStr := r.URL.Query().Get("page")
+    if pageStr != "" {
+        page, _ = strconv.Atoi(pageStr)
+    }
+
+    // Obtenha a lista de produtos com base na página atual e itens por página
+    produtos, totalItems := models.BuscaProdutosPaginados(page, itemsPerPage)
+
+    // Calcule o número total de páginas
+    totalPages := int(math.Ceil(float64(totalItems) / float64(itemsPerPage)))
+	var previousPage int
+	if page > 1 {
+		previousPage = page - 1
+	}
+	var nextPage int
+	if page < totalPages {
+    nextPage = page + 1
+	}
+	
+	templateData := struct {
+		Produtos    []models.Produto
+		TotalPages  int
+		CurrentPage int
+		PreviousPage int // Adicione o valor da página anterior
+		NextPage int
+	}{
+		Produtos:    produtos,
+		TotalPages:  totalPages,
+		CurrentPage: page,
+		PreviousPage: previousPage,
+		NextPage: nextPage, // Passe o valor da página anterior
+	}
+    temp.ExecuteTemplate(w, "Alugueis", templateData)
 }
 func Alugueis_user(w http.ResponseWriter, r*http.Request){
 	todososprodutos := models.BuscaTodosOsProdutos()
@@ -95,9 +131,9 @@ func Insert(w http.ResponseWriter, r*http.Request){
 			id_editora = 1
 		}else if editora == "Alta Books"{
 			id_editora = 2
-		}else if editora == "OReilly"{
+		}else if editora == "O'Reilly"{
 			id_editora = 3
-		} else if editora == "Casa do Codigo"{
+		} else if editora == "Casa do Código"{
 			id_editora = 4
 		}
 
@@ -126,6 +162,17 @@ func Update(w http.ResponseWriter, r *http.Request){
 		isbn := r.FormValue("isbn")
 		autor := r.FormValue("autor")
 		editora := r.FormValue("editora")
+		id_editora := 0
+
+		if editora == "Novatec"{
+			id_editora = 1
+		}else if editora == "Alta Books"{
+			id_editora = 2
+		}else if editora == "OReilly"{
+			id_editora = 3
+		}else if editora == "Casa do Codigo"{
+			id_editora = 4
+		}
 	
 
 	idConvertido, err := strconv.Atoi(id)
@@ -133,7 +180,7 @@ func Update(w http.ResponseWriter, r *http.Request){
 		log.Println("Erro na Conversão do ID")
 	 }
 
-	 models.AtualizaProduto(idConvertido,nome,descricao,status,isbn,autor,editora)
+	 models.AtualizaProduto(idConvertido,nome,descricao,status,isbn,autor,id_editora)
 
 	 http.Redirect(w,r,"/acervo_adm",301)
 	}

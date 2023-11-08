@@ -41,14 +41,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{range .}}
+                        {{range .Produtos}}
                         <tr>
                             <td>{{.Nome}}</td>
-                            <td><button class="truncate-text" data-id="{{.Id}}" onclick="expandText(this)" style="outline: none;"><p>{{.Descricao}}</p></button></td>
+                            <td><button class="truncate-text" data-id="{{.Id}}"
+                                        onclick="expandText(this)">{{.Descricao}}</button></td>
                             <td>{{.Status}}</td>
                         </tr>
                         {{end}}
                     </tbody>
+                </table>
+                <table>
+
+                    <tr>
+                        <div class="pagination">
+                            <span>Página {{.CurrentPage}} de {{.TotalPages}}&nbsp;</span>
+                            {{if gt .TotalPages 1}}
+                            {{if ne .CurrentPage 1}}
+                            <a href="?page=1">Primeira&nbsp; </a>
+                            <a href="?page={{.PreviousPage}}"> Anterior &nbsp;</a>
+                            {{end}}
+
+                           
+
+                            {{if ne .CurrentPage .TotalPages}}
+                            <a href="?page={{.NextPage}}">&nbsp; Próxima &nbsp;</a>
+                            <a href="?page={{.TotalPages}}"> Última&nbsp; </a>
+                            {{end}}
+                            {{end}}
+                        </div>
+                    </tr>
                 </table>
             </div>
         </section>

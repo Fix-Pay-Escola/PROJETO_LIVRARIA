@@ -115,13 +115,56 @@ func EditaProduto(id string) Produto{
 	defer db.Close()
 	return produtoParaAtualizar
 }
-func AtualizaProduto(id int, nome,descricao,status,isbn,autor,editora string){
+func AtualizaProduto(id int, nome,descricao,status,isbn,autor string,editora int){
 	db := db.ConectacomBancoDeDados()
 
-	AtualizaProduto, err := db.Prepare("Update livros set nome=$1,descricao=$2,status=$3,isbn=$4,autor=$5,editora=$6 where id=$7")
+	AtualizaProduto, err := db.Prepare("Update livros set nome=$1,descricao=$2,status=$3,isbn=$4,autor=$5,id_editora=$6 where id=$7")
 	if err != nil {
 		panic(err.Error())
 	}
 	AtualizaProduto.Exec(nome,descricao,status,isbn,autor,editora,id)
 	defer db.Close()
+}
+func BuscaProdutosPaginados(page int, itemsPerPage int) ([]Produto, int) {
+    db := db.ConectacomBancoDeDados()
+    defer db.Close()
+
+    // Calcule o valor OFFSET com base na página atual
+    offset := (page - 1) * itemsPerPage
+
+    // Consulta SQL com LIMIT e OFFSET para paginação
+    query := "SELECT * FROM livros ORDER BY id ASC LIMIT $1 OFFSET $2"
+    rows, err := db.Query(query, itemsPerPage, offset)
+    if err != nil {
+        panic(err.Error())
+    }
+    defer rows.Close()
+	p := Produto {}
+    produtos := []Produto{}
+
+    for rows.Next() {
+		var id,id_editora  int
+		var nome, descricao, status,isbn,autor string
+
+		err = rows.Scan(&id, &nome, &descricao,&isbn,&autor,&id_editora,&status)
+		 if err != nil {
+			panic(err.Error())
+		 }
+
+		 p.Id = id
+		 p.Nome = nome
+		 p.Descricao = descricao
+		 p.Status = status
+		 produtos = append(produtos, p)
+
+    }
+
+    // Consulta SQL para obter o número total de itens
+    var totalItems int
+    err = db.QueryRow("SELECT COUNT(*) FROM livros").Scan(&totalItems)
+    if err != nil {
+        panic(err.Error())
+    }
+
+    return produtos, totalItems
 }

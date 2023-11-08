@@ -33,3 +33,8 @@ function expandText() {
     }
   });
 }
+
+document.getElementById("search-button").addEventListener("click", function () {
+  var criterio = document.getElementById("search-input").value;
+  window.location = `/search?criterio=${criterio}`;
+});
