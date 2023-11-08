@@ -12,4 +12,6 @@ check.addEventListener("change", () => {
   update.classList.toggle("dark");
   const cb = document.querySelector(".btn-back");
   cb.classList.toggle("dark");
+  const editor = document.querySelector("#editora");
+  editor.classList.toggle("dark");
 });  

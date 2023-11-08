@@ -49,19 +49,20 @@ func BuscaTodosOsProdutos() []Produto{
 
 }
 
-func CriarNovoProduto(nome,descricao,status,isbn,autor string, editora int){
+func CriarNovoProduto(nome,descricao,status,isbn,autor string, editora int) error{
 	db := db.ConectacomBancoDeDados()
-
+	defer db.Close()
 	insereDadosNoBanco, err := db.Prepare("insert into livros (nome,descricao,status,isbn,autor,id_editora) Values ($1,$2,$3,$4,$5,$6)")
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
-	insereDadosNoBanco.Exec(nome,descricao,status,isbn,autor,editora)
+	_, err = insereDadosNoBanco.Exec(nome,descricao,status,isbn,autor,editora)
+	if err != nil {
+		return err
+	}
 
-
-
-	defer db.Close()
+	return nil	
 }
 
 func DeletaProduto(id string){
@@ -103,7 +104,7 @@ func EditaProduto(id string) Produto{
 		produtoParaAtualizar.Autor = autor
 		if id_editora == 1 {
 			produtoParaAtualizar.Editora = "Novatec"
-		}else if(id_editora == 2){
+		}else if (id_editora == 2){
 			produtoParaAtualizar.Editora = "Alta Books"
 		}else if (id_editora == 3){
 			produtoParaAtualizar.Editora = "OReilly"

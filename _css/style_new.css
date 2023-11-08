@@ -92,6 +92,10 @@ body.dark {
     background-color: #1f5463;
     color: #d9e1e4;
 }
+.dark .btn-update:hover{
+    background-color: #1d4e5c;
+    transition: 0.1s linear;
+}
 .btn-back{
     border: none;
     background-color: #aadfe7;
@@ -128,6 +132,21 @@ body.dark {
     width: 100%;
 }
 .dark .formulary{
+    border: 1px solid #22718885;
+    background-color: #4f5051;
+    color: #eaebed;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+}
+#editora{
+    border: 1px solid #03597385;
+    display: flex;
+    background-color: #f2f8f9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.12);
+    width: 100%;
+}
+.dark #editora{
     border: 1px solid #22718885;
     background-color: #4f5051;
     color: #eaebed;

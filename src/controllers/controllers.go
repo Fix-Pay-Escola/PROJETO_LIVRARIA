@@ -14,7 +14,6 @@ var temp = template.Must((template.ParseGlob("_html/*.html")))
 
 
 
-
 func Index(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "Index", nil)
 }
@@ -72,8 +71,11 @@ func Edit(w http.ResponseWriter, r*http.Request){
 		return
 	}
 
+	
+
 	produto := models.EditaProduto(idDoProduto)
 	temp.ExecuteTemplate(w,"Edit",produto)
+	
 }
 func New(w http.ResponseWriter, r*http.Request){
 	temp.ExecuteTemplate(w,"New",nil)
@@ -99,7 +101,11 @@ func Insert(w http.ResponseWriter, r*http.Request){
 			id_editora = 4
 		}
 
-		models.CriarNovoProduto(nome,descricao,status,isbn,autor,id_editora)
+		err := models.CriarNovoProduto(nome,descricao,status,isbn,autor,id_editora)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+            return
+		}
 	}
 	http.Redirect(w,r,"/acervo_adm",301)
 }
@@ -129,7 +135,7 @@ func Update(w http.ResponseWriter, r *http.Request){
 
 	 models.AtualizaProduto(idConvertido,nome,descricao,status,isbn,autor,editora)
 
-	 http.Redirect(w,r,"/Acervo_Adm",301)
+	 http.Redirect(w,r,"/acervo_adm",301)
 	}
 }
 
