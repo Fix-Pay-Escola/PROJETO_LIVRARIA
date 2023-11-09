@@ -67,27 +67,29 @@
 
                         <tr>
                             <div class="pagination">
-                                <span>Página {{.CurrentPage}} de {{.TotalPages}}&nbsp;</span>
-                                {{if gt .TotalPages 1}}
-                                {{if ne .CurrentPage 1}}
-                                <a href="?page=1">Primeira&nbsp; </a>
-                                <a href="?page={{.PreviousPage}}"> Anterior &nbsp;</a>
-                                {{end}}
-
-                               
-
+                                <div class="bottom">
+                                    <span>Página {{.CurrentPage}} de {{.TotalPages}}&nbsp;</span>
+                                    {{if gt .TotalPages 1}}
+                                    {{if ne .CurrentPage 1}}
+                                </div>
+                                <div class="top">
+                                    <a href="?page=1" class="pgin">1</a>&nbsp;<i class="bi-three-dots"></i>
+                                    <a href="?page={{.PreviousPage}}" class="pgin"><i class="bi bi-caret-left"></i>Anterior</a>
+                                    {{end}}
+                                </div><div class="top_t">
                                 {{if ne .CurrentPage .TotalPages}}
-                                <a href="?page={{.NextPage}}">&nbsp; Próxima &nbsp;</a>
-                                <a href="?page={{.TotalPages}}"> Última&nbsp; </a>
+                                <a href="?page={{.NextPage}}" class="pgin">Próximo<i class="bi bi-caret-right"></i></a>
+                                <i class="bi-three-dots"></i>&nbsp;<a href="?page={{.TotalPages}}" class="pgin">{{.TotalPages}}</a></div>
+                                
                                 {{end}}
                                 {{end}}
                             </div>
                         </tr>
                     </table>
 
+                </div>
+            </section>
         </div>
-        </section>
-    </div>
     </div>
     <script src="/_js/acv.js"></script>
 </body>
@@ -95,12 +97,12 @@
 <script>
     console.log("acv.js está carregado!");
 
-function onDelete(id) {
-    let resposta = confirm("Tem certeza que deseja deletar esse produto?")
-    if (resposta) {
-        window.location = `/delete?id=${id}`
+    function onDelete(id) {
+        let resposta = confirm("Tem certeza que deseja deletar esse produto?")
+        if (resposta) {
+            window.location = `/delete?id=${id}`
+        }
     }
-}
 </script>
 
 </html>

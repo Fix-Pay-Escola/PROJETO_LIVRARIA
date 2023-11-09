@@ -3,16 +3,20 @@ check.addEventListener("change", () => {
   document.body.classList.toggle("dark")
   const main = document.querySelector("#btn-add")
   main.classList.toggle("dark")
-  const botao = document.querySelector("#head");
+  const botao = document.querySelector("#head")
   botao.classList.toggle("dark")
   const input = document.querySelector("#btn-del")
   input.classList.toggle("dark")
-  const table = document.querySelector(".table");
+  const table = document.querySelector(".table")
   table.classList.toggle("dark")
   const backgBtn = document.querySelector(".cell")
   backgBtn.classList.toggle("dark")
-  const description = document.querySelector(".truncate-text");
-  description.classList.toggle("dark");
+  const description = document.querySelector(".truncate-text")
+  description.classList.toggle("dark")
+  const pagination = document.querySelector(".pgin")
+  pagination.classList.toggle("dark")
+  const dots = document.querySelector(".bi-three-dots")
+  dots.classList.toggle("dark")
 })
 
 function expandText() {

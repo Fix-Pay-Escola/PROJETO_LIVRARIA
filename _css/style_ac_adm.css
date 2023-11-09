@@ -66,6 +66,44 @@ a:hover {
 #container{
     padding-top: 20px;
 }
+.pagination{
+    display: flex;
+    font-size: 12pt;
+    padding-left:auto;
+    padding-bottom: 5px;
+    box-sizing: auto;
+    justify-content: center;
+    width: auto;
+    margin-left: 410px;
+    margin-right: 410px;
+    align-items: center;
+}
+.pagination a:hover{
+    color:#02556e;
+}
+.top,
+.top_t{
+    border: 1px solid rgba(102, 102, 102, 0.444);
+    border-radius: 0.25em;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08);
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.bottom{
+    font-size: 11pt;
+    margin-bottom: -5px;
+    display:none;
+}
+.dark .pgin{
+    color: #c2c2c5;
+}
+.bi-three-dots{
+    font-weight: lighter;
+}
+.dark .bi-three-dots{
+    color: #c2c2c5;
+}
 .table tbody tr td {
     max-width: 400px;
     white-space: nowrap;
@@ -80,7 +118,7 @@ a:hover {
     background-color: inherit;
 }
 .dark .truncate-text{
-    color: #c2c2c5
+    color: #c2c2c5;
 }
 .truncate-text:active,
 .truncate-text:focus {
@@ -246,7 +284,10 @@ td.cell:hover {
     color: #eaebed;
 }
 footer {
+    position:absolute;
+    bottom:0;
     display: flex;
     justify-content: center;
     color: #29b2dc;
+    margin-left: 46%;
 }
