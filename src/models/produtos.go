@@ -16,38 +16,6 @@ type Produto struct {
 	Editora string;
 }
 
-func BuscaTodosOsProdutos() []Produto{
-	db := db.ConectacomBancoDeDados()
-	
-	selectDeTodosOsProdutos, err := db.Query("select * from livros order by id asc")
-	if err != nil {
-		panic(err.Error())
-	}
-	
-	p := Produto {}
-	produtos := []Produto{}
-
-	for selectDeTodosOsProdutos.Next(){
-		var id,id_editora  int
-		var nome, descricao, status,isbn,autor string
-
-		err = selectDeTodosOsProdutos.Scan(&id, &nome, &descricao,&isbn,&autor,&id_editora,&status)
-		 if err != nil {
-			panic(err.Error())
-		 }
-
-		 p.Id = id
-		 p.Nome = nome
-		 p.Descricao = descricao
-		 p.Status = status
-		 produtos = append(produtos, p)
-
-		 
-	}
-	defer db.Close()
-	return produtos
-
-}
 
 func CriarNovoProduto(nome,descricao,status,isbn,autor string, editora int) error{
 	db := db.ConectacomBancoDeDados()
@@ -110,6 +78,8 @@ func EditaProduto(id string) Produto{
 			produtoParaAtualizar.Editora = "OReilly"
 		}else if (id_editora == 4){
 			produtoParaAtualizar.Editora = "Casa do Codigo"
+		}else if (id_editora == 5){
+			produtoParaAtualizar.Editora = "Sextante"
 		}
 	}
 	defer db.Close()

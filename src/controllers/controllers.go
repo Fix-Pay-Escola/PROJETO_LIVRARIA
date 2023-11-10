@@ -26,14 +26,24 @@ func Login(w http.ResponseWriter, r *http.Request){
 		email := r.PostFormValue("email")
 		password := r.PostFormValue("password")
 
-		// Consulte o banco de dados para verificar as credenciais
-		if verifyCredentials(email, password) {
-			http.Redirect(w, r, "/acervo_adm", http.StatusSeeOther)
-			return
-		}else{
-			http.Redirect(w, r, "/login?error=true", http.StatusSeeOther)
-		}
+		userID, authenticated := verifyCredentials(email, password)
 
+    if authenticated {
+        // As credenciais estão corretas, crie um cookie com o ID do usuário
+        cookie := http.Cookie{
+            Name:  "userID",
+            Value: strconv.Itoa(userID),
+            // Defina outros atributos do cookie, como o tempo de expiração, se desejar
+        }
+        http.SetCookie(w, &cookie)
+
+        // Redirecione o usuário para a página de dashboard, por exemplo
+        http.Redirect(w, r, "/acervo_adm", http.StatusFound)
+    } else {
+        // As credenciais estão incorretas, retorne uma mensagem de erro no formulário de login
+        http.Redirect(w,r,"/login?error=true",http.StatusNotFound)
+    }
+		
 	defer db.Close()
 
 	
@@ -44,9 +54,14 @@ func About_us(w http.ResponseWriter, r*http.Request){
 	temp.ExecuteTemplate(w,"AboutUs",nil)
 }
 func Alugueis(w http.ResponseWriter, r *http.Request) {
+	if !isAuthenticated(r) {
+        // Se o usuário não estiver autenticado, redirecione para a página de login
+        http.Redirect(w, r, "/login", http.StatusFound)
+        return
+    }
     // Parâmetros para paginação
     page := 1 // Página atual
-    itemsPerPage := 10 // Itens por página
+    itemsPerPage := 13 // Itens por página
 
     // Obtenha o valor da página da solicitação
     pageStr := r.URL.Query().Get("page")
@@ -84,8 +99,44 @@ func Alugueis(w http.ResponseWriter, r *http.Request) {
     temp.ExecuteTemplate(w, "Alugueis", templateData)
 }
 func Alugueis_user(w http.ResponseWriter, r*http.Request){
-	todososprodutos := models.BuscaTodosOsProdutos()
-	temp.ExecuteTemplate(w,"Alugueis_User",todososprodutos)
+	// Parâmetros para paginação
+    page := 1 // Página atual
+    itemsPerPage := 10 // Itens por página
+
+    // Obtenha o valor da página da solicitação
+    pageStr := r.URL.Query().Get("page")
+    if pageStr != "" {
+        page, _ = strconv.Atoi(pageStr)
+    }
+
+    // Obtenha a lista de produtos com base na página atual e itens por página
+    produtos, totalItems := models.BuscaProdutosPaginados(page, itemsPerPage)
+
+    // Calcule o número total de páginas
+    totalPages := int(math.Ceil(float64(totalItems) / float64(itemsPerPage)))
+	var previousPage int
+	if page > 1 {
+		previousPage = page - 1
+	}
+	var nextPage int
+	if page < totalPages {
+    nextPage = page + 1
+	}
+	
+	templateData := struct {
+		Produtos    []models.Produto
+		TotalPages  int
+		CurrentPage int
+		PreviousPage int // Adicione o valor da página anterior
+		NextPage int
+	}{
+		Produtos:    produtos,
+		TotalPages:  totalPages,
+		CurrentPage: page,
+		PreviousPage: previousPage,
+		NextPage: nextPage, // Passe o valor da página anterior
+	}
+	temp.ExecuteTemplate(w,"Alugueis_User",templateData)
 }
 func Edit(w http.ResponseWriter, r*http.Request){
 
@@ -135,6 +186,8 @@ func Insert(w http.ResponseWriter, r*http.Request){
 			id_editora = 3
 		} else if editora == "Casa do Código"{
 			id_editora = 4
+		} else if editora == "Sextante"{
+			id_editora = 5
 		}
 
 		err := models.CriarNovoProduto(nome,descricao,status,isbn,autor,id_editora)
@@ -151,7 +204,7 @@ func Delete(w http.ResponseWriter, r *http.Request){
 
 
 	models.DeletaProduto(idDoProduto)
-	http.Redirect(w,r,"/Acervo_Adm",301)
+	http.Redirect(w,r,"/acervo_adm",301)
 }
 func Update(w http.ResponseWriter, r *http.Request){
 	if r.Method == "POST"{
@@ -172,6 +225,8 @@ func Update(w http.ResponseWriter, r *http.Request){
 			id_editora = 3
 		}else if editora == "Casa do Codigo"{
 			id_editora = 4
+		}else if editora == "Sextante"{
+			id_editora = 5
 		}
 	
 
@@ -186,27 +241,29 @@ func Update(w http.ResponseWriter, r *http.Request){
 	}
 }
 
-func verifyCredentials(email, password string) bool {
+func verifyCredentials(email, password string) (int,bool) {
 
 	db := db.ConectacomBancoDeDados()
 	defer db.Close()
     // Consulte o banco de dados para obter as credenciais do usuário
     var storedPassword string
-    err := db.QueryRow("SELECT password FROM users WHERE email = $1", email).Scan(&storedPassword)
+	var userID int
+	err := db.QueryRow("SELECT id, password FROM users WHERE email = $1", email).Scan(&userID, &storedPassword)
     if err != nil {
         // Usuário não encontrado
-        return false
+        return 0, false
     }
+
 
     // Verifique se a senha fornecida corresponde à senha armazenada
     // Neste exemplo, as senhas não são salvas com hash, mas isso é altamente recomendado na prática.
     if password == storedPassword {
         // As credenciais são corretas
-        return true
+        return userID,true
     }
 
     // Senha incorreta
-    return false
+    return 0,false
 
 }
 
@@ -231,4 +288,13 @@ func Error(w http.ResponseWriter, r *http.Request){
 func handleNotFound(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 	fmt.Fprint(w, "ERROR 404:Página não encontrada")
+}
+
+func isAuthenticated(r *http.Request) bool {
+    // Obtenha o cookie de autenticação do request
+    _, err := r.Cookie("userID")
+    if err != nil {
+        return false
+    }
+    return true
 }
