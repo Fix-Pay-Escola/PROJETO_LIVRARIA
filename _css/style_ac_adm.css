@@ -116,6 +116,7 @@ a:hover {
 .truncate-text{
     border: none;
     background-color: inherit;
+    text-overflow: ellipsis;
 }
 .dark .truncate-text{
     color: #c2c2c5;
@@ -284,10 +285,7 @@ td.cell:hover {
     color: #eaebed;
 }
 footer {
-    position:absolute;
-    bottom:0;
-    display: flex;
-    justify-content: center;
-    color: #29b2dc;
-    margin-left: 46%;
+    position: relative;
+    color: #53adc8;
+    margin-left: 45%;
 }

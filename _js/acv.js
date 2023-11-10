@@ -18,7 +18,7 @@ check.addEventListener("change", () => {
   const dots = document.querySelector(".bi-three-dots")
   dots.classList.toggle("dark")
 })
-
+/*
 function expandText() {
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('truncate-text')) {
@@ -27,18 +27,34 @@ function expandText() {
         td.style.whiteSpace = 'nowrap';
         td.style.overflow = 'hidden';
         td.style.height = '1.2em';
+        td.style.textOverflow = 'ellipsis';
         td.setAttribute('data-expanded', 'false');
       } else {
         td.style.whiteSpace = 'normal';
         td.style.overflow = 'visible';
         td.style.height = 'auto';
+        td.style.textOverflow = 'none';
+        td.setAttribute('data-expanded', 'true');
+      }
+    }
+  });
+}*/
+
+function expandText() {
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('truncate-text')) {
+      const td = e.target;
+      if (td.getAttribute('data-expanded') === 'true') {
+        td.style.whiteSpace = 'nowrap';
+        td.style.overflow = 'hidden';
+        td.style.textOverflow = 'ellipsis';
+        td.setAttribute('data-expanded', 'false');
+      } else {
+        td.style.whiteSpace = 'normal';
+        td.style.overflow = 'visible';
+        td.style.textOverflow = 'clip'; // Utiliza 'clip' para remover a ellipsis
         td.setAttribute('data-expanded', 'true');
       }
     }
   });
 }
-
-document.getElementById("search-button").addEventListener("click", function () {
-  var criterio = document.getElementById("search-input").value;
-  window.location = `/search?criterio=${criterio}`;
-});

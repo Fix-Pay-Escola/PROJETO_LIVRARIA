@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     display: flex;
     background-color: #348ea7;
@@ -14,12 +13,10 @@ body {
     flex-direction: column;
     transition: background 0.2s linear;
 }
-
 body.dark {
     background-color: #133741;
     color: #eaebed;
 }
-
 .main {
     display: flex;
     justify-content: center;
@@ -32,18 +29,15 @@ body.dark {
     padding: 20px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.29);
 }
-
 .main.dark {
     background-color: #3c3d3f;
 }
-
 .left {
     display: flex;
     flex-direction: column;
     margin-top: -25vh;
     width: 50%;
 }
-
 .left h1 {
     display: flex;
     justify-content: center;
@@ -51,11 +45,9 @@ body.dark {
     margin-top: 8vh;
     margin-left: 4vh;
 }
-
 .left h5 {
     display: none;
 }
-
 .right {
     flex: 1;
     display: flex;
@@ -63,14 +55,12 @@ body.dark {
     align-items: center;
     flex-direction: column;
 }
-
 .checar {
     display: flex;
     align-items: flex-end;
     justify-content: center;
     margin-left: -3%;
 }
-
 .checkbox {
     position: absolute;
     box-shadow: none;
@@ -78,7 +68,6 @@ body.dark {
     width: min-content;
     opacity: 0;
 }
-
 .fundo {
     background-color: #02222a;
     display: flex;
@@ -93,7 +82,6 @@ body.dark {
     height: 13px;
     margin-top: 10px;
 }
-
 .fundo .ball {
     background-color: #ffffff;
     border-radius: 50%;
@@ -104,30 +92,25 @@ body.dark {
     transform: translateX(0px);
     transition: transform 0.2s linear;
 }
-
 .checkbox:checked+.fundo .ball {
     transform: translateX(1.5vh);
 }
-
 .fundo .bi-sun-fill {
     color: rgb(235, 184, 81);
     font-size: 7.5px;
     position: relative;
     left: 3px;
 }
-
 .fundo .bi-moon-stars-fill {
     color: rgb(237, 235, 215);
     font-size: 6.5px;
     position: relative;
     left: -2px;
 }
-
 #img-login {
     width: 100%;
     height: auto;
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -138,12 +121,14 @@ body.dark {
     margin: auto;
     padding: 10px;
 }
-
 .dark .cont {
     background-color: #303133;
     color: #eaebed;
 }
-
+.cont:active,
+.cont:focus {
+  outline: none;
+}
 label {
     display: flex;
     border-radius: 5px;
@@ -169,7 +154,6 @@ input {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.36);
     width: 70%;
 }
-
 button {
     background-color: #0493be;
     border: none;
@@ -185,42 +169,33 @@ button {
     align-items: center;
     justify-content: center;
 }
-
 .boton:hover {
     background-color: #02495f;
 }
-
 .boton.dark {
     background-color: #133741;
     color: #cad4d7;
 }
-
 .boton.dark:hover {
     background-color: #0b2127;
 }
-
 .cancelbtn {
     background-color: #a3b3b8;
 }
-
 a {
     text-decoration: none;
     color: inherit;
 }
-
 .cancelbtn:hover {
     background-color: #667377;
 }
-
 .dark .cancelbtn {
     background-color: #435359;
     color: #cad4d7;
 }
-
 .dark .cancelbtn:hover {
     background-color: #2e393d;
 }
-
 footer {
     position: fixed;
     display: flex;
@@ -229,18 +204,15 @@ footer {
     font-size: 10pt;
     color: #015872;
 }
-
 @media (max-width: 790px) {
     .main {
         flex-direction: column;
     }
-
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
     .left h1 {
         margin-left: inherit;
     }
@@ -254,31 +226,25 @@ footer {
         width: 130%;
         margin-left: -15%;
     }
-
     .right {
         flex: 0;
         margin-bottom: -240px;
     }
-
     #img-login {
         width: 100%;
     }
-
     b {
         margin-left: -85px;
     }
 }
-
 @media (max-width:430px) {
     .main {
         height: 60vh;
     }
-
     .left h1 {
         margin-top: 4px;
         font-size: 20pt;
     }
-
     .left h5 {
         display: flex;
         width: 50vw;
@@ -289,7 +255,6 @@ footer {
         font-weight: 40;
         text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073);
     }
-
     .left {
         margin-top: -40%;
         height: 10%;
@@ -297,17 +262,14 @@ footer {
         justify-content: center;
         align-items: center;
     }
-
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
     .upass {
         margin-left: 4vh;
     }
-
     input {
         display: flex;
         justify-content: center;
@@ -315,11 +277,9 @@ footer {
         width: 180%;
         margin-left: -45%;
     }
-
     .right {
         display: none;
     }
-
     .checar {
         margin-left: -45px;
     }
