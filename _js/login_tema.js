@@ -14,5 +14,5 @@ check.addEventListener("change", () => {
   pass.classList.toggle("dark");
 });
 
-const goin = document.getElementById("goin");
+
 

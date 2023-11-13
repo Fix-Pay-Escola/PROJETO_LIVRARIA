@@ -48,7 +48,9 @@ a:hover {
     text-shadow: 0px 1px 1.2px rgba(0, 0, 0, 0.249);
     transition: 0.2s linear;
 }
-
+table td{
+    cursor: default;
+}
 #head a:hover {
     color: #0c5166;
     font-size: 16pt;
@@ -104,6 +106,22 @@ a:hover {
 .dark .bi-three-dots{
     color: #c2c2c5;
 }
+.truncate-text {
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: max-width 0.3s ease; 
+    border: none;
+    background-color: inherit;
+}
+.truncate-text:active,
+.truncate-text:focus{
+    border: none;
+    outline:none;
+}
+.dark .truncate-text{
+    color: #c2c2c5;
+}
 .table tbody tr td {
     max-width: 400px;
     white-space: nowrap;
@@ -112,18 +130,6 @@ a:hover {
     max-height: 1.2em; 
     opacity: 1;
     cursor: pointer;
-}
-.truncate-text{
-    border: none;
-    background-color: inherit;
-    text-overflow: ellipsis;
-}
-.dark .truncate-text{
-    color: #c2c2c5;
-}
-.truncate-text:active,
-.truncate-text:focus {
-  outline: none;
 }
 .checar {
     display: flex;
@@ -198,11 +204,10 @@ a:hover {
     border: none;
     background-color: #14d0e9;
     color: #035973;
-    box-shadow: 0px 0.5px 3px rgba(0, 0, 0, 0.321);
+    box-shadow: 0px 0.5px 3px #00000052;
     padding: 8px 16px;
     border-radius: 5px;
 }
-
 #btn-add:hover {
     background-color: #03b6d2;
     color: #073546;
@@ -266,7 +271,6 @@ td:hover{
 td.cell:hover {
     background-color: #ffffff;
 }
-/*problema que vc quer resolver aqui emabixo*/
 .dark td.cell:hover{
     background-color: inherit;
 }
@@ -284,8 +288,27 @@ td.cell:hover {
     background-color: #2d2e30;
     color: #eaebed;
 }
+td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
 footer {
     position: relative;
     color: #53adc8;
     margin-left: 45%;
+}
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table-responsive table {
+    margin-bottom: 0;
+}
+
+@media (max-width: 1199px){
+    .pagination{
+        margin-right: -8px;
+        margin-left: -8px;
+    }
 }

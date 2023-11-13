@@ -48,7 +48,11 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" name="status" class="formulary" step="0.01" value="{{.Status}}">
+                            <select name="status" step="0.01" class="formulary">
+                                <option value="Disponível"{{if eq .Status "Disponível"}} selected{{end}}>Disponivel</option>
+                                <option value="Indisponivel"{{if eq .Status "Indisponivel"}} selected{{end}}>Indisponivel</option>
+                            </select>
+        
                         </div>
                     </div>
                 </div>

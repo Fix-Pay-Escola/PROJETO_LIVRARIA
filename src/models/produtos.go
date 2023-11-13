@@ -99,11 +99,11 @@ func BuscaProdutosPaginados(page int, itemsPerPage int) ([]Produto, int) {
     db := db.ConectacomBancoDeDados()
     defer db.Close()
 
-    // Calcule o valor OFFSET com base na página atual
+   
     offset := (page - 1) * itemsPerPage
 
-    // Consulta SQL com LIMIT e OFFSET para paginação
-    query := "SELECT * FROM livros ORDER BY id ASC LIMIT $1 OFFSET $2"
+   
+    query := "SELECT * FROM livros ORDER BY nome ASC LIMIT $1 OFFSET $2"
     rows, err := db.Query(query, itemsPerPage, offset)
     if err != nil {
         panic(err.Error())
@@ -129,7 +129,7 @@ func BuscaProdutosPaginados(page int, itemsPerPage int) ([]Produto, int) {
 
     }
 
-    // Consulta SQL para obter o número total de itens
+    
     var totalItems int
     err = db.QueryRow("SELECT COUNT(*) FROM livros").Scan(&totalItems)
     if err != nil {

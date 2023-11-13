@@ -39,22 +39,13 @@ function expandText() {
     }
   });
 }*/
-
-function expandText() {
-  document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('truncate-text')) {
-      const td = e.target;
-      if (td.getAttribute('data-expanded') === 'true') {
-        td.style.whiteSpace = 'nowrap';
-        td.style.overflow = 'hidden';
-        td.style.textOverflow = 'ellipsis';
-        td.setAttribute('data-expanded', 'false');
-      } else {
-        td.style.whiteSpace = 'normal';
-        td.style.overflow = 'visible';
-        td.style.textOverflow = 'clip'; // Utiliza 'clip' para remover a ellipsis
-        td.setAttribute('data-expanded', 'true');
-      }
-    }
-  });
+function expandText(button) {
+  const td = button.parentNode;
+  if (td.getAttribute('data-expanded') === 'true') {
+    td.style.whiteSpace = 'nowrap';
+    td.setAttribute('data-expanded', 'false');
+  } else {
+    td.style.whiteSpace = 'normal';
+    td.setAttribute('data-expanded', 'true');
+  }
 }
